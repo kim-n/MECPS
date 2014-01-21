@@ -1,0 +1,23 @@
+<header class="title">Create User</header>
+
+<form action="<%= users_url %>" method="POST">
+<input  
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>"
+></input>
+
+<label>Email
+<input type="text" name="user[:email]"></input>
+</label>
+
+<label>Name
+<input type="text" name="user[:name]"></input>
+</label>
+
+<label>Password
+<input type="password" name="user[:password]"></input>
+</label>
+
+<input type="submit" value="New!"></input>
+</form>
