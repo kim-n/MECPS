@@ -16,6 +16,10 @@ module SessionsHelper
     redirect_to new_session_url unless current_user
   end
   
+  def require_admin
+    redirect_to root_url unless current_user && current_user.id == 1
+  end
+  
   def require_no_current_user
     redirect_to user_url(current_user) if current_user
   end

@@ -1,0 +1,28 @@
+<header class="title">Create Book</header>
+
+<form action="<%= book_url(@book) %>" method="POST">
+  <input type="hidden" name="method" value="PUT"></input>
+<input  
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>"
+></input>
+
+<label>Title
+<input type="text" name="book[title]" value="<%= @book.title %>"></input>
+</label>
+
+<label>Author
+<input type="text" name="book[author]" value="<%= @book.author %>"></input>
+</label>
+
+<label>Description
+<input type="text" name="book[description]" value="<%= @book.description %>"></input>
+</label>
+
+<label>Image
+<input type="text" name="book[image]" value="<%= @book.image %>"></input>
+</label>
+
+<input type="submit" value="New!"></input>
+</form>

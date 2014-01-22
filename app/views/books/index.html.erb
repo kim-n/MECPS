@@ -1,0 +1,4 @@
+<header class="title">All Books</header>
+<% @books.each do |book| %>
+<a href="<%= book_url(book) %>"><%= book.title %></a><br>
+<% end %>

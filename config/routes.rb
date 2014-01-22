@@ -1,7 +1,12 @@
 Library::Application.routes.draw do
+  
+  root :to => "books#index"
+
   resources :users, :except => [:edit, :update, :destroy]
   
   resource :session, :only => [:new, :create, :destroy]
+  
+  resources :books, :only => [:index, :show, :new, :create, :edit, :update, :destroy]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
