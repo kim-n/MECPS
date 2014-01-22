@@ -13,24 +13,22 @@ class UsersController < ApplicationController
     render :new
   end
   
-  def edit
-    render :edit
-  end
-  
   def create
     user = User.new(params[:user])
     if user.save
       redirect_to user_url(user)
     else
+      flash[:error] = user.errors.full_messages
       render :new
     end
   end
   
+  def edit
+  end
+  
   def update
-    
   end
   
   def destroy
-    
   end
 end
