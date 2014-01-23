@@ -1,2 +1,5 @@
+<header class="page-title">Show Question</header>
+
 <a class="back-button" href="<%= book_url(@question.book) %>">BACK</a>
-<%= render partial: "questions/display_question", locals: { question: @question} %>
+
+<%= render partial: "questions/list_questions", locals: { questions: [@question]} %>

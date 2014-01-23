@@ -23,7 +23,8 @@ class User < ActiveRecord::Base
     class_name: "Comment",
     foreign_key: :user_id,
     primary_key: :id,
-    inverse_of: :user
+    inverse_of: :user,
+    dependent: :destroy
   )
   
   def self.find_by_credentials(email, password)

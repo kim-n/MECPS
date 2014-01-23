@@ -1,0 +1,24 @@
+<header class="page-title">Edit Question</header>
+
+<a class="back-button" href="<%= book_url(@question.book) %>">BACK</a>
+<header class="title">Create Book</header>
+
+<form action="<%= question_url(@question) %>" method="POST">
+  <input type="hidden" name="_method" value="PUT"></input>
+  
+<input  
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>"
+></input>
+
+<label>Question *
+<input type="text" name="question[name]" value="<%= @question.name %>"></input>
+</label>
+
+<label>Description (optional)
+<input type="text" name="question[description]" value="<%= @question.description %>"></input>
+</label>
+
+<input type="submit" value="EDIT!"></input>
+</form>

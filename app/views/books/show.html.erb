@@ -1,11 +1,14 @@
+<header class="page-title">Show Book</header>
+
 <a class="back-button" href="<%= books_url %>">BACK</a>
 <a href="<%= new_book_question_url(@book) %>">+Question</a>
-<header class="title">Show Book</header>
-Title: <%= @book.title %>
-Author: <%= @book.author %>
-Description: <%= @book.description %>
-Image: <%= @book.image %>
 
-<% @questions.each do |question| %>
-  <%= render partial: "questions/display_question", locals: { question: question} %>
-<% end %>
+<div class="book">
+  <div class="book-title">Title: <%= @book.title %></div>
+  <div class="book-author">Author: <%= @book.author %></div>
+  <div class="book-description">Description: <%= @book.description %></div>
+  <div class="book-image">Image: <%= @book.image %></div>
+
+  <%= render partial: "questions/list_questions", locals: { questions: @book.questions} %>
+</div>
+

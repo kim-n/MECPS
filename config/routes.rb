@@ -10,6 +10,10 @@ Library::Application.routes.draw do
     resources :questions, :except => [:index]
   end
   
+  resources :questions, :only => [:show, :edit, :update] do
+    resources :comments, :except => [:index]
+  end
+  
   resource :admin, :only => [] do
     get '/', :to => 'admins#home'
   end

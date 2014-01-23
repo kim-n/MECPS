@@ -1,0 +1,17 @@
+<!-- Locals : question -->
+
+<div class="comment-new">
+  <form action="<%= question_comments_url(question) %>" method="POST">
+  <input  
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>"
+  ></input>
+
+  <label>Comment*
+  <input type="text" name="comment[content]"></input>
+  </label>
+
+  <input type="submit" value="New!"></input>
+  </form>
+</div>

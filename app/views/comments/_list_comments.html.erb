@@ -1,0 +1,10 @@
+<!-- Locals : comments ; question -->
+
+<div class="comments-list">
+  <%= render partial: "comments/comment_form", locals: {question: question} %>  
+
+  <% comments.each do |comment| %>
+    <%= render partial: "comments/comment", locals: {comment: comment} %>  
+  <% end %>
+</div>
+

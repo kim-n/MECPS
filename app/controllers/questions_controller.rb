@@ -24,11 +24,19 @@ class QuestionsController < ApplicationController
   end
   
   def edit 
-    
+    @question = Question.find_by_id(params[:id])
+    render :edit
   end
   
   def update
-    
+    @question = Question.find_by_id(params[:id])
+    if @question.update_attributes(params[:question])
+      flash[:alert] = ["Question Updated"]
+      redirect_to question_url(@question)
+    else
+      flash[:error] = ["ERROR: Question update failed."]
+      redirect_to question_url(@question)
+    end
   end
   
   def destroy

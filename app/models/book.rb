@@ -8,6 +8,7 @@ class Book < ActiveRecord::Base
     class_name: "Question",
     foreign_key: :book_id,
     primary_key: :id,
-    inverse_of: :book
+    inverse_of: :book,
+    dependent: :destroy
   )
 end

@@ -9,7 +9,6 @@ class BooksController < ApplicationController
   
   def show
     @book = Book.find_by_id(params[:id])
-    @questions = @book.questions
     @book ? ( render :show ) : ( redirect_to books_url )
   end
   

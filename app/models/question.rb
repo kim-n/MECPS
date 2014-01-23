@@ -21,9 +21,10 @@ class Question < ActiveRecord::Base
   
   has_many(
     :comments,
-    class_name: "Question",
+    class_name: "Comment",
     foreign_key: :question_id,
     primary_key: :id,
-    inverse_of: :question
+    inverse_of: :question,
+    dependent: :destroy
   )
 end
