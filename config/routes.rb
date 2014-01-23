@@ -8,6 +8,9 @@ Library::Application.routes.draw do
   
   resources :books, :only => [:index, :show, :new, :create, :edit, :update, :destroy]
   
+  resource :admin, :only => [] do
+    get '/', :to => 'admins#home'
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
