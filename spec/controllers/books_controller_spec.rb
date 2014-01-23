@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe BooksController do
+  
+  let(:admin) { FactoryGirl.create(:admin) }
+  
   describe "GET index" do
     it "assigns @@books" do
       book = FactoryGirl.create(:book)
@@ -34,23 +37,13 @@ describe BooksController do
   end
   
   describe "GET new" do
-    
     it "redirects to root index if user is not an admin" do
       get :new
       expect(response).to redirect_to :root
     end
 
     it "renders the new template" do
-      @user = FactoryGirl.create(:user) 
-      controller.stub(:current_user).and_return(@user)
-      get :new
-      expect(response).to_not redirect_to :root    
-      expect(response).to render_template("new")
-    end
-    
-    it "renders the new template" do
-      @user = FactoryGirl.create(:user) 
-      controller.stub(:current_user).and_return(@user)
+      controller.stub(:current_user).and_return(admin)
       get :new
       expect(response).to_not redirect_to :root    
       expect(response).to render_template("new")
@@ -58,6 +51,36 @@ describe BooksController do
   end
   
   describe "POST create" do
+    context "when user is not logged in" do
+      it "redirects to root index" do
+        get :new
+        expect(response).to redirect_to :root
+      end
+    end
+
+    context "when user is not admin" do
+      it "redirects to root index" do
+        controller.stub(:current_user).and_return( FactoryGirl.create(:user) )
+        get :new
+        expect(response).to redirect_to :root
+      end
+    end
+      
+    context "when user is admin" do
+      before(:each){
+        controller.stub(:current_user).and_return(admin)
+      }
+    
+      it "creates a valid book object" do
+        post :create, book: FactoryGirl.attributes_for(:book)
+        expect(response).to redirect_to book_url(Book.last)
+      end
+    
+      it "does not create an invalid book object" do
+        post :create, book: FactoryGirl.attributes_for(:incomplete_book)
+        expect(response).to redirect_to :new_book
+      end
+    end
     
   end
   

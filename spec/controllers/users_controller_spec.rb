@@ -37,7 +37,11 @@ describe UsersController do
   end
   
   describe "GET new" do
-    
+    it "renders the new template" do
+      get :new
+      expect(response).to_not redirect_to :root    
+      expect(response).to render_template("new")
+    end
   end
   
   describe "POST create" do
