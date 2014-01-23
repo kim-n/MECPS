@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   validates :email, :name, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: { in: 6..20, message: "password must be between 6 and 20 characters" }
-  # validates :email, fromat: { with: /\A.+@.+\..+\z/, message: "Not a valid email" }
   validates_format_of :email, { with: /\A.+@.+\..+\z/, message: "email must be a valid email"}
   
   after_initialize :ensure_session_token
@@ -18,6 +17,14 @@ class User < ActiveRecord::Base
   ) 
   
   has_many :books, through: :questions, source: :book
+  
+  has_many(
+    :comments,
+    class_name: "Comment",
+    foreign_key: :user_id,
+    primary_key: :id,
+    inverse_of: :user
+  )
   
   def self.find_by_credentials(email, password)
     user = User.find_by_email( email )

@@ -18,4 +18,12 @@ class Question < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :questions
   )
+  
+  has_many(
+    :comments,
+    class_name: "Question",
+    foreign_key: :question_id,
+    primary_key: :id,
+    inverse_of: :question
+  )
 end
