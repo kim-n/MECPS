@@ -10,6 +10,10 @@ FactoryGirl.define do
       password ''
       session_token ''
     end
+    
+    factory :admin do
+      admin 1
+    end
   end
 
 end

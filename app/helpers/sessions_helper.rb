@@ -17,7 +17,7 @@ module SessionsHelper
   end
   
   def require_admin
-    redirect_to root_url unless current_user && current_user.id == 1
+    redirect_to root_url unless current_user && current_user.admin > 0
   end
   
   def require_no_current_user
