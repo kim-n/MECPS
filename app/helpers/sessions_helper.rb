@@ -12,6 +12,10 @@ module SessionsHelper
     session.delete(:token)
   end
   
+  def is_admin?(user)
+    user.admin > 0
+  end
+  
   def require_current_user
     redirect_to new_session_url unless current_user
   end

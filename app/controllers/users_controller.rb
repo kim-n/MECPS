@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  
+  before_filter :require_current_user, :only => [:edit, :update]
+  before_filter :require_admin, :only => [:new, :create]
+  
   def index
     @users = User.all
     render :index
@@ -26,9 +30,18 @@ class UsersController < ApplicationController
   end
   
   def edit
+    user = User.new(params[:user])
+    if is_admin?(current_user) || user == current_user
+      render :edit
+    else
+      flash[:alert] = ["You can't edit another user's profile"]
+      redirect_to root_url
+    end
   end
   
   def update
+    user = User.new(params[:user])
+    
   end
   
   def destroy
