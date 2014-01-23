@@ -6,7 +6,9 @@ Library::Application.routes.draw do
   
   resource :session, :only => [:new, :create, :destroy]
   
-  resources :books, :only => [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :books do
+    resources :questions, :except => [:index]
+  end
   
   resource :admin, :only => [] do
     get '/', :to => 'admins#home'

@@ -9,6 +9,16 @@ class User < ActiveRecord::Base
   
   after_initialize :ensure_session_token
   
+  has_many(
+    :questions,
+    class_name: "Question",
+    foreign_key: :user_id,
+    primary_key: :id,
+    inverse_of: :user
+  ) 
+  
+  has_many :books, through: :questions, source: :book
+  
   def self.find_by_credentials(email, password)
     user = User.find_by_email( email )
     return user if user && user.is_password?(password)

@@ -1,0 +1,20 @@
+<a class="back-button" href="<%= book_url(@book) %>">BACK</a>
+<header class="title">Create Book</header>
+
+<form action="<%= book_questions_url(@book) %>" method="POST">
+<input  
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>"
+></input>
+
+<label>Question *
+<input type="text" name="question[name]"></input>
+</label>
+
+<label>Description (optional)
+<input type="text" name="question[description]"></input>
+</label>
+
+<input type="submit" value="New!"></input>
+</form>

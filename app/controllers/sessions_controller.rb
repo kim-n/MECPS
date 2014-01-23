@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     if user
       log_in(user) # in SessionsHelper
       flash[:alert] = ["Welcome #{user.name}!"]
-      redirect_to user
+      redirect_to root_url
     else
       flash[:error] = ["Wrong credentials"]
       p User.all
