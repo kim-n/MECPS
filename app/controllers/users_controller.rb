@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   
   def create
     user = User.new(params[:user])
-    fail
+    
     if user.save
       flash[:alert] = ["User created!"]
       redirect_to user_url(user)
