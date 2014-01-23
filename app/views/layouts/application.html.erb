@@ -19,13 +19,8 @@
 <% end %>
 
 <nav>
-  <% if current_user %>
-  <%= current_user.name %>
-  <%= button_to "SIGN OUT", session_url, method: :delete %>
-  <% else %>
-  <a href="<%= new_session_url %>">SIGN IN</a>
-  <% end %>
 
+<%= render "layouts/nav_bar" %>
 <%= yield %>
 
 </body>

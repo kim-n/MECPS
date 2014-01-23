@@ -1,5 +1,11 @@
+<a class="back-button" href="<%= books_url %>">BACK</a>
+<a href="<%= new_book_question_url(@book) %>">+Question</a>
 <header class="title">Show Book</header>
 Title: <%= @book.title %>
 Author: <%= @book.author %>
 Description: <%= @book.description %>
 Image: <%= @book.image %>
+
+<% @questions.each do |question| %>
+  <%= render partial: "questions/display_question", locals: { question: question} %>
+<% end %>

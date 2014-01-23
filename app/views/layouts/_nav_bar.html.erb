@@ -1,0 +1,13 @@
+<nav class="navigation">
+  <% if current_user && is_admin?(current_user)%>
+  <a href="<%= admin_url %>">Admin</a>
+  <% end %>
+  <a href="<%= books_url %>">Books</a>
+  <a href="<%= users_url %>">Users</a>
+<% if current_user %>
+  <a href="<%=  %>"><%= current_user.name %></a>
+  <%= button_to "SIGN OUT", session_url, method: :delete %>
+<% else %>
+  <a href="<%= new_session_url %>">SIGN IN</a>
+<% end %>
+</nav>
