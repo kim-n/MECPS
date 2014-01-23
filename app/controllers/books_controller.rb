@@ -20,6 +20,7 @@ class BooksController < ApplicationController
     params[:book][:image] = "http://www.authormedia.com/wp-content/uploads/2013/11/goodreads.jpeg" if params[:book][:image].blank?
     book = Book.new(params[:book])
     if book.save
+      flash[:alert] = ["#{book.title} added!"]
       redirect_to book_url(book)
     else
       flash[:error] = book.errors.full_messages

@@ -1,32 +1,8 @@
 require 'spec_helper'
 
 describe UsersController do
-    # 
-  # integrate_views
-  # fixtures :menu_items
-  # 
-  # it "should redirect to index with a notice on successful save" do
-  #   MenuItem.any_instance.stubs(:valid?).returns(true)
-  #   post 'create'
-  #   assigns[:menu_item].should_not be_new_record
-  #   flash[:notice].should_not be_nil
-  #   response.should redirect_to(menu_items_path)
-  # end
-  # 
-  # it "should re-render new template on failed save" do
-  #   MenuItem.any_instance.stubs(:valid?).returns(false)
-  #   post 'create'
-  #   assigns[:menu_item].should be_new_record
-  #   flash[:notice].should be_nil
-  #   response.should render_template('new')
-  # end
-  # 
-  # it "should pass params to menu item" do
-  #   post 'create', :menu_item => { :name => 'Plain' }
-  #   assigns[:menu_item].name.should == 'Plain'
-  # end
-  # 
-  # 
+  integrate_views
+ 
   describe "GET index" do
     it "assigns @users" do
       user = FactoryGirl.create(:user)
@@ -58,5 +34,17 @@ describe UsersController do
       get :show, id: user.id
       expect(response).to render_template("show")
     end
+  end
+  
+  describe "GET new" do
+    
+  end
+  
+  describe "POST create" do
+    
+  end
+  
+  describe "GET new" do
+    
   end
 end

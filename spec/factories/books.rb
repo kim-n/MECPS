@@ -6,5 +6,12 @@ FactoryGirl.define do
     author "MyString"
     description "MyText"
     image "MyString"
+    
+    factory :incomplete_book do
+      title ''
+      author ''
+      image ''
+      description ''
+    end
   end
 end

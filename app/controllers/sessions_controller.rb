@@ -12,8 +12,10 @@ class SessionsController < ApplicationController
     
     if user
       log_in(user) # in SessionsHelper
+      flash[:alert] = ["Welcome #{user.name}!"]
       redirect_to user
     else
+      flash[:error] = ["Wrong credentials"]
       p User.all
       redirect_to new_session_url
     end
@@ -21,6 +23,7 @@ class SessionsController < ApplicationController
   
   def destroy
     log_out_current_user! # in SessionsHelper
+    flash[:alert] = ["Come back soon!"]
     redirect_to new_session_url
   end
 end

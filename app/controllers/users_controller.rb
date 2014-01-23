@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     user = User.new(params[:user])
     fail
     if user.save
+      flash[:alert] = ["User created!"]
       redirect_to user_url(user)
     else
       flash[:error] = user.errors.full_messages
