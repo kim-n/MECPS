@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="main-header-wrapper">
+    <header class="main-header">Library</header>
+  </div>
+  
 <% if flash[:error] %>
   <% flash[:error].each do |notice| %>
     <p class="error"><%= notice %></p>
@@ -19,7 +23,7 @@
 <% end %>
 
 <%= render "layouts/nav_bar" %>
-<div id="main">
+<div class="main">
 	<%= yield %>
 </div>
 

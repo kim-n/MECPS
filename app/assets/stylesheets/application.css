@@ -11,3 +11,168 @@
  *= require_self
  *= require_tree .
  */
+
+
+/* --- RESET --- */
+
+html, body, header, footer, section, article, div, span,
+strong, a, img, p, h1, h2, h3, time, ul, li, small, input, select, form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* --- ELEMENTS --- */
+
+body {
+  font-family: sans-serif;
+  background: transparent;
+  font-size: 20px;
+  line-height: normal;
+  background: #F8F8F4;
+/*  background-image:url('lghtmesh.png');*/
+}
+
+
+
+ul {
+  list-style: none;
+}
+
+form {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+strong {
+  font-weight: bold;
+}
+
+img {
+  display: block;
+}
+
+form > div {
+  display:inline;
+}
+
+input[type="password"], input[type="text"] {
+  background: #FDF9EC;
+/*  margin: 2px;*/
+  border: 1px solid #eee;
+}
+
+
+input[type="submit"]{
+/*  background: #FDF9EC;
+  margin: 2px;
+  border: 1px solid #eee;*/
+}
+
+/* --- UTILITIES --- */
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.page-title, .title {
+  display: block;
+  font-size: 24px;
+  font-weight: 100;
+  color: #d7d7d7;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+/* --- NAV --- */
+.navigation-wrapper {
+  background: black;  
+}
+
+.navigation {
+  background: #070707;
+  width: 900px;
+  height: 35px;
+  margin: auto;
+  color: white;
+}
+
+.navigation  a {
+  color:white;
+  padding: 6px 10px;
+  margin-left: -7px;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+.navigation  a:hover {
+  background: green;
+}
+
+.left-navigation{
+  margin-left: 7px;
+  float: left;
+  margin-top: 6px;
+}
+
+.right-navigation{
+  float: right;
+  margin-top: 6px;
+}
+
+.right-navigation input[type="submit"] {
+  padding: 6px;
+  margin-left: -6px;
+  margin-top: -7px;
+  background: black;
+  color: white;
+  border-right: 1px solid #ccc;
+}
+
+.right-navigation input[type="submit"]:hover {
+  background: green;
+}
+
+/* --- MAIN --- */
+.main-header-wrapper{
+  font-size: 50px;
+  height: 50px;
+  padding: 10px 0px;
+}
+
+.main-header {
+  width: 900px;
+  margin: auto;
+}
+
+.main {
+  background: #707070;
+  padding: 20px;
+  width: 860px;
+  margin: auto;
+}
+
+.question {
+  border: 2px solid white;
+}
+
+.comment {
+  border: 2px solid black;
+}
+
+.comment-content{
+  display: inline;
+}
+
+.comment-user{
+}
