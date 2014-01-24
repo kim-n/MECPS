@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    user = User.new(params[:user])
+    @user = User.find_by_id(params[:id])
     if is_admin?(current_user) || user == current_user
       render :edit
     else

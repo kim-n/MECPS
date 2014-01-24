@@ -1,5 +1,6 @@
 <header class="title">Show User</header>
-<%= image_tag @user.avatar.url(:medium) %>
+<a href="<%= edit_user_url(@user) %>">EDIT</a>
+<%= image_tag @user.avatar.url(:thumb) %>
 
 Name: <%= @user.name %>
 Email: <%= @user.email %>

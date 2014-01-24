@@ -1,22 +1,25 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password
   
+  # You will need to use attr_accessible if you are
+  # using Rails config setting `whitelist_attributes = true`
+  attr_accessible :avatar
+  
   validates :email, :name, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: { in: 6..20, message: "password must be between 6 and 20 characters" }
   validates_format_of :email, { with: /\A.+@.+\..+\z/, message: "email must be a valid email"}
+# validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/, :message => 'file type is not allowed (only jpeg/png/gif images)'  
+  # validate :file_dimensions, :unless => "errors.any?"
   
   after_initialize :ensure_session_token
   
-  # You will need to use attr_accessible if you are
-  # using Rails config setting `whitelist_attributes = true`
-  attr_accessible :avatar
 
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :avatar, styles: {
     thumb: '100x100>',
     square: '200x200#',
-    medium: '300x300>'
+    medium: '200X200>'
   }
   
   has_many(
@@ -37,6 +40,7 @@ class User < ActiveRecord::Base
     inverse_of: :user,
     dependent: :destroy
   )
+  
   
   def self.find_by_credentials(email, password)
     user = User.find_by_email( email )
@@ -60,6 +64,15 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
   end
+  
+  # def file_dimensions
+  #   dimensions = Paperclip::Geometry.from_file(file.queued_for_write[:original].path)
+  #   self.width = dimensions.width
+  #   self.height = dimensions.height
+  #   if dimensions.width < 100 && dimensions.height < 100
+  #     errors.add(:file,'Width or height must be at least 50px')
+  #   end
+  # end
   
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)

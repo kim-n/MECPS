@@ -2,7 +2,7 @@ Library::Application.routes.draw do
   
   root :to => "books#index"
 
-  resources :users, :except => [:edit, :update, :destroy]
+  resources :users, :except => [:destroy]
   
   resource :session, :only => [:new, :create, :destroy]
   
