@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  attr_accessible :author, :description, :image, :title
+  attr_accessible :author, :description, :image, :title, :source
   
   validates :author, :image, :title, :presence  => true
   

@@ -17,13 +17,28 @@ class BooksController < ApplicationController
   end
   
   def create
+    match = /.+\/(.+)/.match(params[:source])
+    file_name = match[1] unless match.nil?
+    
+    if file_name && File.exists?("public/#{file_name}")  # match[1] is filename
+      flash[:error] = ["#{file_name} already exists"]
+    elsif file_name
+      params[:book][:source] = request.protocol + request.host_with_port + "/#{file_name}"
+    end
+    
     params[:book][:image] = "http://www.authormedia.com/wp-content/uploads/2013/11/goodreads.jpeg" if params[:book][:image].blank?
     book = Book.new(params[:book])
-    if book.save
+    
+    if flash[:error].nil? && book.save
+      if file_name
+        open("public/#{file_name}", 'wb') do |file|
+          file << open(params[:source]).read
+        end
+      end
       flash[:alert] = ["#{book.title} added!"]
       redirect_to book_url(book)
     else
-      flash[:error] = book.errors.full_messages
+      flash[:error] = flash[:error].nil? ? book.errors.full_messages : flash[:error] + book.errors.full_messages
       redirect_to new_book_url
     end
   end

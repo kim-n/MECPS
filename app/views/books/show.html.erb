@@ -2,12 +2,13 @@
 
 <a class="back-button" href="<%= books_url %>">BACK</a>
 <a href="<%= new_book_question_url(@book) %>">+Question</a>
-
+<a href="<%= edit_book_url(@book) %>">EDIT</a>
 <div class="book">
   <div class="book-title">Title: <%= @book.title %></div>
   <div class="book-author">Author: <%= @book.author %></div>
   <div class="book-description">Description: <%= @book.description %></div>
   <div class="book-image">Image: <%= @book.image %></div>
+  <a href="<%= @book.source %>">Link!</a>
 
   <%= render partial: "questions/list_questions", locals: { questions: @book.questions} %>
 </div>
