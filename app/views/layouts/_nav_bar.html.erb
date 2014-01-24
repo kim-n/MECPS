@@ -13,8 +13,12 @@
         <a href="#">N</a>
         <%= button_to "SIGN OUT", session_url, method: :delete %>
       <% else %>
-        <a href="<%= new_session_url %>">SIGN IN</a>
+        <a id="sign-in-botton" href="<%= new_session_url %>">SIGN IN</a>
       <% end %>
     </span>
   </nav>
+</div>
+
+<div id="session-section">
+  <%= render partial: "sessions/form" %>  
 </div>

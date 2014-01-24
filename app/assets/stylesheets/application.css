@@ -143,6 +143,23 @@ input[type="submit"]{
   background: green;
 }
 
+
+#session-section{
+  background: white;
+  border: 1px solid #ccc;
+  left: 50%;
+  margin-left:+148px;
+  padding: 20px;
+  width:  260px;
+  position:fixed;
+}
+
+#session-section input[type="text"],
+#session-section input[type="password"] {
+  margin-bottom: 10px;  
+  width: 260px;
+}
+
 /* --- MAIN --- */
 .main-header-wrapper{
   font-size: 50px;
