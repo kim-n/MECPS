@@ -53,8 +53,7 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+gem 'figaro'
 
 gem 'paperclip'
 gem 'aws-sdk'
-
-gem 'figaro'

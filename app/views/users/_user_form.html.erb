@@ -1,11 +1,15 @@
 <header class="title">Create User</header>
 
-<form action="<%= users_url %>" method="POST">
+<form action="<%= users_url %>" method="POST" enctype="multipart/form-data">
 <input  
   type="hidden"
   name="authenticity_token"
   value="<%= form_authenticity_token %>"
 ></input>
+
+<label>Avatar
+<input type="file" name="user[avatar]"></input>
+</label>
 
 <label>Email*
 <input type="text" name="user[email]"></input>

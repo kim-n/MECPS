@@ -1,3 +1,5 @@
 <header class="title">Show User</header>
+<%= image_tag @user.avatar.url(:medium) %>
+
 Name: <%= @user.name %>
 Email: <%= @user.email %>
