@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
   
   def create
+    params[:user][:avatar] = params[:avatar][:file] || params[:avatar][:link] || ""
     user = User.new(params[:user])
     
     if user.save
