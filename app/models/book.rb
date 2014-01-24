@@ -1,7 +1,19 @@
 class Book < ActiveRecord::Base
-  attr_accessible :author, :description, :image, :title, :source
+  attr_accessible :author, :description, :title, :source
   
-  validates :author, :image, :title, :presence  => true
+  # You will need to use attr_accessible if you are
+  # using Rails config setting `whitelist_attributes = true`
+  attr_accessible :cover
+  
+  validates :author, :title, :presence  => true
+  
+  
+  # This method associates the attribute ":avatar" with a file attachment
+  has_attached_file :cover, styles: {
+    thumb: '100x100>',
+    square: '250x250#',
+    large: '250X>'
+  }
   
   has_many(
     :questions,

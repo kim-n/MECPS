@@ -7,7 +7,7 @@
   <div class="book-title">Title: <%= @book.title %></div>
   <div class="book-author">Author: <%= @book.author %></div>
   <div class="book-description">Description: <%= @book.description %></div>
-  <div class="book-image">Image: <%= @book.image %></div>
+  <div class="book-image">Image: <%= image_tag @book.cover.url(:square) %></div>
   <a href="<%= @book.source %>">Link!</a>
 
   <%= render partial: "questions/list_questions", locals: { questions: @book.questions} %>

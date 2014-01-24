@@ -17,6 +17,9 @@ class BooksController < ApplicationController
   end
   
   def create
+
+    params[:book][:cover] = params[:cover][:file] || params[:cover][:link] || ""  
+    
     match = /.+\/(.+)/.match(params[:source])
     file_name = match[1] unless match.nil?
     
@@ -26,7 +29,6 @@ class BooksController < ApplicationController
       params[:book][:source] = request.protocol + request.host_with_port + "/#{file_name}"
     end
     
-    params[:book][:image] = "http://www.authormedia.com/wp-content/uploads/2013/11/goodreads.jpeg" if params[:book][:image].blank?
     book = Book.new(params[:book])
     
     if flash[:error].nil? && book.save

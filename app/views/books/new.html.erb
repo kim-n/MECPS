@@ -1,11 +1,12 @@
 <header class="page-title">Create Book</header>
 
-<form action="<%= books_url %>" method="POST">
+<form action="<%= books_url %>" method="POST" enctype="multipart/form-data">
 <input  
   type="hidden"
   name="authenticity_token"
   value="<%= form_authenticity_token %>"
 ></input>
+
 
 <label>Title*
 <input type="text" name="book[title]"></input>
@@ -15,12 +16,13 @@
 <input type="text" name="book[author]"></input>
 </label>
 
-<label>Description
-<input type="text" name="book[description]"></input>
+<label>Avatar
+<input type="file" name="cover[file]" value=""></input>
+<input type="text" name="cover[link]" value=""></input>
 </label>
 
-<label>Image
-<input type="text" name="book[image]"></input>
+<label>Description
+<input type="text" name="book[description]"></input>
 </label>
 
 <label>Source
