@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   end
   
   def create
+    params[:user][:email] = params[:user][:email].downcase
+    params[:user][:name] =  params[:user][:email].split.map(&:capitalize).join(" ")
+     
     params[:user][:avatar] = params[:avatar][:file] || params[:avatar][:link] || ""
     user = User.new(params[:user])
     
