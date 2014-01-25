@@ -9,6 +9,6 @@
 <% @books.each do |book| %>
 <div class="book-sq">
   <a href="<%= book_url(book) %>"><img src="<%= book.cover(:square) %>"></img></a>
-  <a class="book-sq-title" href="<%= book_url(book) %>"><%= book.title %></a>
+  <a class="book-sq-title fill-sq-title" href="<%= book_url(book) %>"><%= book.title %></a>
 </div>
 <% end %>

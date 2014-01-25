@@ -10,7 +10,7 @@
 
 <div class="book">
   <div class="book-cover"><%= image_tag @book.cover.url(:large) %></div>
-    <div class="book-title"><%= @book.title %></div>
+    <div class="book-title fill-book-title"><%= @book.title %></div>
     <div class="book-author">by <%= @book.author %></div>
     <a class="book-download" href="<%= @book.source %>">Download</a>
     <div class="book-description"><%= @book.description %></div>

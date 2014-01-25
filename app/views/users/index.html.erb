@@ -8,6 +8,6 @@
 <% @users.each do |user| %>
 <div class="user-sq">
   <a class="user-sq-avatar" href="<%= user_url(user) %>"><img src="<%= user.avatar.url(:square) %>"></img></a>
-  <a class="user-sq-name" href="<%= user_url(user) %>"><%= user.name %></a><br>
+  <a class="user-sq-name fill-sq-title" href="<%= user_url(user) %>"><%= user.name %></a><br>
 </div>
 <% end %>

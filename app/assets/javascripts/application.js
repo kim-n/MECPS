@@ -25,7 +25,26 @@ $(function (){
         
         $signInSection = $("div#session-section")
         $signInSection.toggle(); 
-    });
-    
+    });    
 
+    
+    function autfill(className, maxWidth){
+        $.each( $('.' + className), function(){
+            $(this).height()
+            
+            
+            if ($(this).width() > maxWidth){
+                fontSize = parseInt($(this).css("font-size"), 10),
+                multiplier = maxWidth/$(this).width(),
+                newSize = (fontSize*(multiplier-0.1));
+                $(this).css("font-size", newSize )
+                
+            }
+        })
+    };
+    
+    autfill("fill-sq-title", 250);
+    autfill("fill-book-title", 770);
+    
 })
+
