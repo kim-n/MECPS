@@ -1,4 +1,8 @@
 <div class="comment">
   <p class="comment-content"><%= comment.content %></p>
-  <a class="comment-user" href="<%= user_url(comment.user) %>"> - <%= comment.user.name %></a>
+  <a class="comment-user" href="<%= user_url(comment.user) %>"> - <%= comment.user.name %></a>  
+  
+  <%= render partial: "comments/comment_form", locals: {question: comment.question, parent_id: comment.id} %>  
+  
+  <%= render partial: "comments/list_comments", locals: {comments: comment.children} %>
 </div>

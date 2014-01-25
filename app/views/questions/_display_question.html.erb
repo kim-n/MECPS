@@ -5,9 +5,9 @@
     <%= render partial: "questions/question", locals: { question: question} %>
     <div class="page-separator"></div>
     
-    <%= render partial: "comments/comment_form", locals: {question: question} %>  
+    <%= render partial: "comments/comment_form", locals: {question: question, parent_id: 0} %>  
     
-    <%= render partial: "comments/list_comments", locals: {question: question, comments: question.comments} %>
+    <%= render partial: "comments/list_comments", locals: {question: question, comments: question.root_comments} %>
   <% end %>
 </div>
 

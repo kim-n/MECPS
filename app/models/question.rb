@@ -27,4 +27,8 @@ class Question < ActiveRecord::Base
     inverse_of: :question,
     dependent: :destroy
   )
+  
+  def root_comments
+    self.comments.where(parent_id: 0)
+  end
 end

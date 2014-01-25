@@ -6,6 +6,7 @@
     value="<%= form_authenticity_token %>"
   ></input>
 
+    <input type="hidden" name="comment[parent_id]" value="<%= parent_id %>"></input>
   <textarea name="comment[content]"></textarea>
 
   <input type="submit" value="New!"></input>
