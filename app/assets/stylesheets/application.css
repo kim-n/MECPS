@@ -63,7 +63,7 @@ form > div {
   display:inline;
 }
 
-input[type="password"], input[type="text"] {
+input[type="password"], input[type="text"], textarea {
   background: #FDF9EC;
 /*  margin: 2px;*/
   border: 1px solid #eee;
@@ -93,6 +93,12 @@ input[type="submit"]{
   padding: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid #d7d7d7;
+}
+
+.page-separator {
+  background: #ccc;
+  height: 10px;
+  margin: 20px 0px;
 }
 
 /* --- NAV --- */
@@ -211,7 +217,8 @@ input[type="submit"]{
   font-size:16px;
 }
 
-.user-square {
+.user-sq,
+.book-sq {
   display: inline-block;
   background: #a9a9a9;
   text-align: center;
@@ -219,20 +226,84 @@ input[type="submit"]{
   margin: 5px;
 }
 
-.user-avatar{
+.user-sq-avatar{
 }
 
-.user-avatar img{
+.user-sq-avatar img{
 }
 
-.user-name{ 
+.user-sq-name,
+.book-sq-title{ 
   color: white;  
 }
 
-.book-square {
+.book {
+  background: #ccc;
+  width: 100%;
+  font-size: 18px;
+  min-height: 250px;
+  margin-bottom: 10px;
+}
+
+.book-cover {
+  float:left;
   display: inline-block;
-  background: #a9a9a9;
-  text-align: center;
-  white-space: nowrap;
-  margin: 5px;
+  margin: 50px 10px;
+}
+
+.book-cover img {
+  width: 150px;
+  border: 1px solid #eee;
+}
+
+.book-info {
+  display: inline-block;
+  padding: 10px;
+  width: 75%;
+}
+
+.book-title {
+  font-size: 30px;
+}
+
+.book-author {
+  font-size: 12px;
+}
+
+.book-download {
+  font-size: 12px;
+}
+
+.book-description{
+  margin-top: 12px;
+  text-align: justify;
+}
+
+.user {
+  background: #ccc;
+  width: 100%;
+  font-size: 18px;
+  min-height: 120px;
+  margin-bottom: 10px;
+}
+
+.user-image {
+  float:left;
+  display: inline-block;
+  margin: 10px 10px;
+  border: 1px solid #eee;
+}
+
+.user-info {
+  display: inline-block;
+  padding: 10px;
+  width: 75%;
+}
+
+.user-name {
+  font-size: 30px;
+}
+
+.user-join {
+  font-size: 12px;
 }

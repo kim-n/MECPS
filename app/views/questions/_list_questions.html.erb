@@ -3,6 +3,8 @@
 <div class="questions-list">
   <% questions.each do |question| %>
     <%= render partial: "questions/question", locals: { question: question} %>
+    <%= render partial: "comments/comment_form", locals: {question: question} %>  
+    
     <%= render partial: "comments/list_comments", locals: {question: question, comments: question.comments} %>
   <% end %>
 </div>

@@ -1,7 +1,13 @@
+<% if current_user && is_admin?(current_user) %>
+<nav class="sub-navigation">
+  <a href="<%= new_user_url %>">+USER</a>
+</nav>
+<% end %>
+
 <header class="title">All Users</header>
 <% @users.each do |user| %>
-<div class="user-square">
-  <a class="user-avatar" href="<%= user_url(user) %>"><img src="<%= user.avatar.url(:square) %>"></img></a>
-  <a class="user-name" href="<%= user_url(user) %>"><%= user.name %></a><br>
+<div class="user-sq">
+  <a class="user-sq-avatar" href="<%= user_url(user) %>"><img src="<%= user.avatar.url(:square) %>"></img></a>
+  <a class="user-sq-name" href="<%= user_url(user) %>"><%= user.name %></a><br>
 </div>
 <% end %>

@@ -1,6 +1,21 @@
-<header class="title">Show User</header>
-<a href="<%= edit_user_url(@user) %>">EDIT</a>
-<%= image_tag @user.avatar.url(:thumb) %>
+<% if current_user && ( is_admin?(current_user) || current_user == @user)%>
+<nav class="sub-navigation">
+  <a href="<%= edit_user_url(@user) %>">EDIT</a>
+</nav>
+<% end %>
 
-Name: <%= @user.name %>
-Email: <%= @user.email %>
+<!-- <header class="title">Show User</header> -->
+
+<div class="user">
+  <div class="user-image"><%= image_tag @user.avatar.url(:thumb) %></div>
+  <div class="user-info">
+    <div class="user-name"><%= @user.name %></div>
+    <div class="user-join"><%= @user.created_at.strftime("%b %e %y") %></div> 
+  </div>
+</div>
+
+<div class="page-separator"></div>
+
+<%= render partial: "comments/list_comments", locals: {comments: @user.comments} %>
+
+

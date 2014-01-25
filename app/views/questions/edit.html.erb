@@ -1,7 +1,5 @@
 <header class="page-title">Edit Question</header>
 
-<a class="back-button" href="<%= book_url(@question.book) %>">BACK</a>
-<header class="title">Create Book</header>
 
 <form action="<%= question_url(@question) %>" method="POST">
   <input type="hidden" name="_method" value="PUT"></input>
@@ -22,3 +20,5 @@
 
 <input type="submit" value="EDIT!"></input>
 </form>
+
+<a class="back-button" href="<%= question_url(@question) %>">CANCEL</a>

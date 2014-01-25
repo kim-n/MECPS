@@ -1,19 +1,24 @@
-<% #if current_user && is_admin?(current_user) %>
+<% if current_user && is_admin?(current_user) %>
 <nav class="sub-navigation">
   <a href="<%= edit_book_url(@book) %>">EDIT</a>
   
   <a href="<%= new_book_question_url(@book) %>">+QUESTION</a>
 </nav>
-<% #end %>
-<header class="page-title">Show Book</header>
+<% end %>
+
+<!-- <header class="page-title">Show Book</header> -->
 
 <div class="book">
-  <div class="book-title">Title: <%= @book.title %></div>
-  <div class="book-author">Author: <%= @book.author %></div>
-  <div class="book-description">Description: <%= @book.description %></div>
-  <div class="book-image">Image: <%= image_tag @book.cover.url(:square) %></div>
-  <a href="<%= @book.source %>">Link!</a>
-
-  <%= render partial: "questions/list_questions", locals: { questions: @book.questions} %>
+  <div class="book-cover"><%= image_tag @book.cover.url(:large) %></div>
+  <div class="book-info">
+    <div class="book-title"><%= @book.title %></div>
+    <div class="book-author">by <%= @book.author %></div>
+    <a class="book-download" href="<%= @book.source %>">Download</a>
+    <div class="book-description"><%= @book.description %></div>
+  </div>
 </div>
+
+<div class="page-separator"></div>
+
+<%= render partial: "questions/list_questions", locals: { questions: @book.questions} %>
 

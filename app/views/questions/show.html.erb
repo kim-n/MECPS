@@ -1,5 +1,8 @@
+<% if current_user && is_admin?(current_user) %>
+<nav class="sub-navigation">
+  <a href="<%= edit_question_url %>">EDIT</a>
+</nav>
+<% end %>
 <header class="page-title">Show Question</header>
-
-<a class="back-button" href="<%= book_url(@question.book) %>">BACK</a>
 
 <%= render partial: "questions/list_questions", locals: { questions: [@question]} %>

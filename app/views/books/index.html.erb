@@ -1,7 +1,14 @@
+<% if current_user && is_admin?(current_user) %>
+<nav class="sub-navigation">
+<a href="<%= new_book_url %>">+BOOK</a>
+</nav>
+<% end %>
+
 <header class="page-title">All Books</header>
+
 <% @books.each do |book| %>
-<div class="book-square">
+<div class="book-sq">
   <a href="<%= book_url(book) %>"><img src="<%= book.cover(:square) %>"></img></a>
-  <a href="<%= book_url(book) %>"><%= book.title %></a>
+  <a class="book-sq-title" href="<%= book_url(book) %>"><%= book.title %></a>
 </div>
 <% end %>

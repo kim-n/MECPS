@@ -17,15 +17,15 @@
 </label>
 
 <label>Description
-<input type="text" name="book[description]" value="<%= @book.description %>"></input>
+<textarea name="book[description]"><%= @book.description %></textarea>
 </label>
 
 <label>Image
-<input type="text" name="book[image]" value="<%= @book.image %>"></input>
+<input type="text" name="book[cover]" value="<%= @book.cover() %>"></input>
 </label>
 
 <label>Source
-<input type="text" name="book[source]" value="<%= @book.image %>"></input>
+<input type="text" name="book[source]" value="<%= @book.source %>"></input>
 </label>
 
 <input type="submit" value="Edit!"></input>
