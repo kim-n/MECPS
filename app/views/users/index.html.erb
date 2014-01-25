@@ -1,4 +1,7 @@
 <header class="title">All Users</header>
 <% @users.each do |user| %>
-<a href="<%= user_url(user) %>"><%= user.name %></a><br>
+<div class="user-square">
+  <a class="user-avatar" href="<%= user_url(user) %>"><img src="<%= user.avatar.url(:square) %>"></img></a>
+  <a class="user-name" href="<%= user_url(user) %>"><%= user.name %></a><br>
+</div>
 <% end %>

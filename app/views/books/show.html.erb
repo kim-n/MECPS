@@ -1,8 +1,12 @@
+<% #if current_user && is_admin?(current_user) %>
+<nav class="sub-navigation">
+  <a href="<%= edit_book_url(@book) %>">EDIT</a>
+  
+  <a href="<%= new_book_question_url(@book) %>">+QUESTION</a>
+</nav>
+<% #end %>
 <header class="page-title">Show Book</header>
 
-<a class="back-button" href="<%= books_url %>">BACK</a>
-<a href="<%= new_book_question_url(@book) %>">+Question</a>
-<a href="<%= edit_book_url(@book) %>">EDIT</a>
 <div class="book">
   <div class="book-title">Title: <%= @book.title %></div>
   <div class="book-author">Author: <%= @book.author %></div>

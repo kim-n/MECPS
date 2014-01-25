@@ -1,7 +1,8 @@
-<header class="page-title">New Question</header>
+<nav class="sub-navigation">
+  <a class="back-button" href="<%= book_url(@book) %>">BACK</a>
+</nav>
 
-<a class="back-button" href="<%= book_url(@book) %>">BACK</a>
-<header class="title">Create Book</header>
+<header class="page-title">New Question</header>
 
 <form action="<%= book_questions_url(@book) %>" method="POST">
 <input  

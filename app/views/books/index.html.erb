@@ -1,4 +1,7 @@
 <header class="page-title">All Books</header>
 <% @books.each do |book| %>
-<a href="<%= book_url(book) %>"><%= book.title %></a><br>
+<div class="book-square">
+  <a href="<%= book_url(book) %>"><img src="<%= book.cover(:square) %>"></img></a>
+  <a href="<%= book_url(book) %>"><%= book.title %></a>
+</div>
 <% end %>
