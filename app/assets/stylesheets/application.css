@@ -71,10 +71,10 @@ input[type="password"], input[type="text"], textarea {
 }
 
 
-input[type="submit"]{
-/*  background: #FDF9EC;
-  margin: 2px;
-  border: 1px solid #eee;*/
+input[type="submit"]:hover{
+  background: red;
+  color: white;
+  cursor: pointer;
 }
 
 /* --- UTILITIES --- */
@@ -202,21 +202,6 @@ input[type="submit"]{
   margin: auto;
 }
 
-.question {
-  border: 2px solid white;
-}
-
-.comment {
-  border: 2px solid black;
-}
-
-.comment-content {
-  display: inline;
-}
-
-.comment-user {
-  font-size:16px;
-}
 
 .user-sq,
 .book-sq {
@@ -307,4 +292,90 @@ input[type="submit"]{
 
 .user-join {
   font-size: 12px;
+}
+
+/*-- QUESTIONS --*/
+.question {
+  background: #eee;
+  border: 1px solid #707070;
+  margin-bottom: 10px;
+}
+
+.question-name{
+  font-size: 30px;
+}
+
+.question-description{
+  background: #ddd;
+  padding: 5px 5px 5px 10px;
+}
+
+.question-footer {
+  text-align: right;
+  font-size: 14px;
+  padding: 4px 0px;
+}
+
+.question-footer a {
+  padding: 0px 10px;
+}
+
+.question-footer a:first-child {
+  border-right: 1px solid black;
+}
+
+.question .comments-list {
+  width: 90%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  
+}
+
+.question .comment {
+  border-top: 1px solid black;
+  padding: 20px 40px;
+}
+
+.question .comment-content {
+  display: inline;
+}
+
+.question .comment-user {
+  font-size:16px;
+  display: block;
+  text-align: right;
+  margin-right: 40px;
+}
+
+
+.question .comment-new {
+  background: white;
+  position: absolute;
+  left: 50%;
+  margin-left: 170px;
+  margin-top: 10px;
+}
+
+.question .comment-new .comment-exit {
+  position: absolute;
+  left: 100%;
+  margin-left: -15px;
+  margin-top: -12px;
+  background: white;
+  padding: 1px 8px;
+  border-radius: 100%;
+}
+
+.question .comment-new textarea {
+  height: 100px;
+  width: 200px;
+  padding: 10px;
+}
+
+
+.question .comment-new input[type="submit"] {
+  width: 100%;
 }

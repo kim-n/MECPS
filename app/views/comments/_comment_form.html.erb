@@ -1,4 +1,3 @@
-<!-- Locals : question -->
 <div class="comment-new">
   <form action="<%= question_comments_url(question) %>" method="POST">
   <input  
@@ -7,9 +6,7 @@
     value="<%= form_authenticity_token %>"
   ></input>
 
-  <label>Comment*
-    <textarea name="comment[content]"></textarea>
-  </label>
+  <textarea name="comment[content]"></textarea>
 
   <input type="submit" value="New!"></input>
   </form>

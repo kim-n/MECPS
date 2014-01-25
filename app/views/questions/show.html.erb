@@ -3,6 +3,7 @@
   <a href="<%= edit_question_url %>">EDIT</a>
 </nav>
 <% end %>
-<header class="page-title">Show Question</header>
 
 <%= render partial: "questions/list_questions", locals: { questions: [@question]} %>
+
+<div class="page-separator"></div>
