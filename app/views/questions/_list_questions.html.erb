@@ -1,14 +1,30 @@
-<!-- Locals : questions -->
-
 <div class="questions-list">
   <% questions.each do |question| %>
-    <%= render partial: "questions/question", locals: { question: question} %>
-    <%= render partial: "comments/comment_form", locals: {question: question} %>  
+    <div class="question">
+      <a class="question-name" href="<%= book_question_url(question.book, question) %>"><%= question.name %></a>
+      <p class="question-description"><%= question.description %></p>
+      <div class="question-footer">
+        <a class="responses-botton" href="#"><%= question.comments.count %> Responses</a>
+        <a class="comment-botton" href="#">+RESPOND</a>
+      </div>
+      
+      <div class="comment-new">
+        <a class="comment-exit" href="#">x</a>
+        <form action="<%= question_comments_url(question) %>" method="POST">
+        <input  
+          type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>"
+        ></input>
+
+        <textarea name="comment[content]"></textarea>
+
+        <input type="submit" value="New!"></input>
+        </form>
+      </div>
+       
     
-    <%= render partial: "comments/list_comments", locals: {question: question, comments: question.comments} %>
+      <%= render partial: "comments/list_comments", locals: {question: question, comments: question.comments} %>
+    </div>
   <% end %>
 </div>
-
-
-
-

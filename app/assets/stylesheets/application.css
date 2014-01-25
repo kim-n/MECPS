@@ -373,3 +373,58 @@ input[type="submit"]:hover{
 .question .comment-new input[type="submit"] {
   width: 100%;
 }
+
+
+.question-display .comments-list {
+  background: #eee;
+  width: 90%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  
+}
+
+.question-display .comment {
+  border-top: 1px solid black;
+  padding: 20px 40px;
+}
+
+.question-display .comment-content {
+  display: inline;
+}
+
+.question-display .comment-user {
+  font-size:16px;
+  display: block;
+  text-align: right;
+  margin-right: 40px;
+}
+
+
+.question-display .comment-new {
+  background: #eee;
+  height: 70px;
+  width: 90%;
+  margin: auto;
+}
+
+.question-display .comment-new textarea {
+  display: inline;
+  width: 83%;
+  height: 50px;
+  margin-top: 7px;
+  margin-left: 7px;
+  font-size: 18px;
+  
+}
+
+.question-display .comment-new input[type="submit"] {
+  width: 100px;
+  height: 54px;
+  margin-left: 10px;
+  margin-top: 7px;
+  position: absolute;
+}
+
