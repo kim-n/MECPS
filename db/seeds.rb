@@ -32,6 +32,10 @@ Book.create({
   author: "JRR Tolkien", 
   description: "Frodo Baggins knew the Ringwraiths were searching for him - and the Ring of Power he bore that would enable Sauron to destroy all that was good in Middle-earth. Now it was up to Frodo and his faithful servant Sam to carry the Ring to where it could be detroyed - in the very center of Sauron's dark kingdom.", 
   cover: "http://www.geofftaylor-artist.com/system/files/imagecache/normal/covers/tolkien-fellowship_of_the_ring1.jpg"})
+Book.create({
+  title: "Minimum",
+  author: "requirements"
+})
 
 admin = User.first
 
@@ -40,4 +44,12 @@ admin = User.first
   Question.create({book_id: Book.all[t].id, user_id: admin.id, name: "What was your favorite thing about #{Book.all[t].title}?", description: "For example, the plot, the setting, the characters."})
   Question.create({book_id: Book.all[t].id, user_id: admin.id, name: "Which of the main characters from #{Book.all[t].title} did you relate to the most?", description: "In what way did you relate to this character? Emotionally, Physically, Politically?"})
   Question.create({book_id: Book.all[t].id, user_id: admin.id, name: "What did the author mean when saying 'some words' in lines 23-24?"})
+end
+
+
+12.times do |t|
+  Question.all[t].comments.create(user_id: 2, content: "Love, love, loved it!")
+  Question.all[t].comments.create(user_id: 3, content: "Hate, hate, hated it!")
+  Question.all[t].comments.create(user_id: 4, content: "Because everyone on the planet excluding me and maybe some of the Kardashians have read this series, I'll skip the plot summary and go for a less formal review. I can see why so many people adore Harry Potter. While Rowling does not introduce anything particularly groundbreaking in terms of fantasy or plot or characterization, she does abide by the hero's quest with great precision. Harry is the underdog from the start and you can't help but cheer him on as he overcomes obstacles with the help of his friends and his mentor. Each of the characters has a distinct personality, and Rowling's simple writing style leaves room for brevity and enough imagery to pull you into the setting. Story-wise, she includes all of the necessary elements: foreshadowing, conflicts that escalate to the climax, a pretty satisfying plot twist, etc.")
+  Question.all[t].comments.create(user_id: 5, content: "Word word word, words. Word word word, words. Word word word, words. Word word word, words. Word word word, words. Word word word, words. ")
 end
