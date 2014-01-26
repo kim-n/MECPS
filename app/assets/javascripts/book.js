@@ -1,5 +1,6 @@
 $(function(){
     $(".question .comment-new").hide();
+    $(".comments-list .comment-new").hide();
     $(".question .comments-list").hide();
     
     $("body").on("click", ".responses-botton", function(event) {

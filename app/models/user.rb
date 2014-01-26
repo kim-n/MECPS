@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: {
     thumb: '100x100>',
     square: '200x200#',
-    medium: '200X200>'
+    full: '200X200>'
   }
   
   has_many(

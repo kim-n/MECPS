@@ -7,7 +7,7 @@
 <!-- <header class="title">Show User</header> -->
 
 <div class="user">
-  <div class="user-image"><%= image_tag @user.avatar.url(:thumb) %></div>
+  <div class="user-image"><%= image_tag @user.avatar.url(:medium) %></div>
   <div class="user-info">
     <div class="user-name"><%= @user.name %></div>
     <div class="user-join"><%= @user.created_at.strftime("%b %e %y") %></div> 

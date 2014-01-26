@@ -1,9 +1,29 @@
+<div class="question-show-page">
+
 <% if current_user && is_admin?(current_user) %>
 <nav class="sub-navigation">
   <a href="<%= edit_question_url %>">EDIT</a>
 </nav>
 <% end %>
 
-<%= render partial: "questions/display_question", locals: { questions: [@question]} %>
+
+<div class="head">
+
+  <div class="book-sq">
+    <a href="<%= book_url(@question.book) %>"><img src="<%= @question.book.cover(:square) %>"></img></a>
+    <a class="book-sq-title fill-sq-title" href="<%= book_url(@question.book) %>"><%= @question.book.title %></a>
+  </div>
+  
+  <%= render partial: "questions/question", locals: { question: @question} %>
+  
+</div>
 
 <div class="page-separator"></div>
+
+  <%= render partial: "comments/comment_form", locals: {question: @question, parent_id: 0} %>  
+  
+  <%= render partial: "comments/list_comments", locals: {question: @question, comments: @question.root_comments} %>
+
+<div class="page-separator"></div>
+
+</div>

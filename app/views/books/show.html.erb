@@ -9,10 +9,12 @@
 <!-- <header class="page-title">Show Book</header> -->
 
 <div class="book">
-  <div class="book-cover"><%= image_tag @book.cover.url(:large) %></div>
+  <div class="book-cover"><%= image_tag @book.cover.url(:full) %></div>
     <div class="book-title fill-book-title"><%= @book.title %></div>
     <div class="book-author">by <%= @book.author %></div>
+    <% if current_user && @book.source %>
     <a class="book-download" href="<%= @book.source %>">Download</a>
+    <% end %>
     <div class="book-description"><%= @book.description %></div>
 </div>
 

@@ -11,8 +11,8 @@ class Book < ActiveRecord::Base
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :cover, styles: {
     thumb: '100x100>',
-    square: '250x250#',
-    large: '250X>'
+    square: '200x200#',
+    full: '200X200>'
   }
   
   has_many(

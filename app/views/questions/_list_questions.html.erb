@@ -4,7 +4,7 @@
       <a class="question-name" href="<%= book_question_url(question.book, question) %>"><%= question.name %></a>
       <p class="question-description"><%= question.description %></p>
       <div class="question-footer">
-        <a class="responses-botton" href="#"><%= question.comments.count %> Responses</a>
+        <a class="responses-botton" href="#"><%= question.root_comments.count %> Responses</a>
         <a class="comment-botton" href="#">+RESPOND</a>
       </div>
       
@@ -22,9 +22,8 @@
         <input type="submit" value="New!"></input>
         </form>
       </div>
-       
     
-      <%= render partial: "comments/list_comments", locals: {question: question, comments: question.comments} %>
+      <%= render partial: "comments/list_comments", locals: {question: question, comments: question.root_comments} %>
     </div>
   <% end %>
 </div>

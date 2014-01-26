@@ -289,7 +289,7 @@ input[type="submit"]:hover{
 }
 
 /*-- QUESTIONS --*/
-.question {
+/*.question {
   background: #eee;
   border: 1px solid #707070;
   margin-bottom: 10px;
@@ -372,7 +372,7 @@ input[type="submit"]:hover{
 
 .question .comment-new input[type="submit"] {
   width: 100%;
-}
+}*/
 
 /*
 .question-display .comments-list {
@@ -429,9 +429,101 @@ input[type="submit"]:hover{
 }
 */
 
+.question-show-page .head {
+  background: #ccc;
+  min-height: 265px;
+}
+
+.head .book-sq {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  float: left;
+}
+
+.head .question {
+  padding-top: 100px;
+}
+
+.head .question .question-name {
+  font-size: 30px;
+}
+
+.head .question .question-description {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.question-show-page  .comment-new {
+  background: #ccc;
+  padding-top: 10px;
+}
+
+.question-show-page > .comment-new {
+  margin-bottom: 20px;
+}
+
+.question-show-page  .comment-new textarea{
+  font-size: 14px;
+  height: 25px;
+  width: 87%;
+  margin: auto;
+  margin-top: 10px;
+
+}
+
+.question-show-page  .comment-new input[type="submit"] {
+  width: 100%;
+  display:block;
+  margin: auto;  
+}
+
+.question-show-page > .comments-list {
+  padding-right: 20px;
+}
+
+.comments-list {
+  background: white;
+  padding-top: 20px;
+}
 
 .comment {
   margin-left: 20px;
-  border: 1px dotted black;
-  background: green;
 }
+
+.comment-header {
+  background: #ddd;
+}
+
+.comment-user {
+  display: inline;
+}
+
+.comment-date {
+  display: inline;
+  float: right;
+}
+
+.comment-botton {
+  font-size: 14px;
+}
+
+
+.questions-list .question{
+  background: #ddd;
+  margin-bottom: 10px;
+}
+
+.questions-list .question .question-name{
+  display: block;
+  background: #ccc;
+}
+
+.comments-list {
+  padding-right: 20px;
+}
+
+.comment {
+  margin-left: 20px;
+}
+
