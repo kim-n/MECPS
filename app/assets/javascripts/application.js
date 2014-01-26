@@ -43,7 +43,7 @@ $(function (){
         })
     };
     
-    autfill("fill-sq-title", 250);
+    autfill("fill-sq-title", 200);
     autfill("fill-book-title", 770);
     
 })

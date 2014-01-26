@@ -15,7 +15,9 @@
 <% if show_footer %>
   <div class="question-footer">
     <a class="responses-botton" href="#"><%= question.root_comments.count %> Responses</a>
+  <% if current_user %>
     <a class="comment-botton" href="#">respond</a>
+  <% end %>
   </div>
 <% end %>
 
@@ -24,6 +26,4 @@
 <% end %>
 
 <%= render partial: "questions/question_comments", locals: { question: question} %>
-
-
 </div>
