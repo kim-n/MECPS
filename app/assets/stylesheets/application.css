@@ -101,6 +101,23 @@ input[type="submit"]:hover{
   margin: 20px 0px;
 }
 
+.main-header-wrapper{
+  margin-top: -100px;
+  background: #F8F8F4;
+  width: 100%;
+  position: fixed;
+}
+
+.navigation-wrapper{
+  margin-top: -30px;
+  position: fixed;
+  width: 100%;
+}
+
+.main{
+  margin-top: 100px;
+}
+
 /* --- NAV --- */
 .navigation-wrapper {
   background: black;  
@@ -199,7 +216,8 @@ input[type="submit"]:hover{
   background: #707070;
   padding: 20px;
   width: 860px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -383,10 +401,11 @@ input[type="submit"]:hover{
 }
 
 .question-show-page .book-sq {
-  margin-top: 20px;
+  margin-top: 14px;
   margin-left: 20px;
   margin-right: 20px;
   float: left;
+  border: 8px solid #ddd;
 }
 
 .question-show-page .question-content .question-name {
