@@ -257,6 +257,7 @@ input[type="submit"]:hover{
 .book-description{
   margin-top: 12px;
   text-align: justify;
+  font-size: 16px;
 }
 
 .user {
@@ -287,144 +288,6 @@ input[type="submit"]:hover{
 .user-join {
   font-size: 12px;
 }
-
-/*-- QUESTIONS --*/
-/*
-
-.question .comments-list {
-  width: 90%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid black;
-  
-}
-
-.question .comment {
-  border-top: 1px solid black;
-  padding: 20px 40px;
-}
-
-.question .comment-content {
-  display: inline;
-}
-
-.question .comment-user {
-  font-size:16px;
-  display: block;
-  text-align: right;
-  margin-right: 40px;
-}
-
-
-.question .comment-new {
-  background: white;
-  position: absolute;
-  left: 50%;
-  margin-left: 170px;
-  margin-top: 10px;
-}
-
-.question .comment-new .comment-exit {
-  position: absolute;
-  left: 100%;
-  margin-left: -15px;
-  margin-top: -12px;
-  background: white;
-  padding: 1px 8px;
-  border-radius: 100%;
-}
-
-.question .comment-new textarea {
-  height: 100px;
-  width: 200px;
-  padding: 10px;
-}
-
-
-.question .comment-new input[type="submit"] {
-  width: 100%;
-}*/
-
-/*
-.question-display .comments-list {
-  background: #eee;
-  width: 90%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid black;
-  
-}
-
-.question-display .comment {
-  border-top: 1px solid black;
-  padding: 20px 40px;
-}
-
-.question-display .comment-content {
-  display: inline;
-}
-
-.question-display .comment-user {
-  font-size:16px;
-  display: block;
-  text-align: right;
-  margin-right: 40px;
-}
-
-
-.question-display .comment-new {
-  background: #eee;
-  height: 70px;
-  width: 90%;
-  margin: auto;
-}
-
-.question-display .comment-new textarea {
-  display: inline;
-  width: 83%;
-  height: 50px;
-  margin-top: 7px;
-  margin-left: 7px;
-  font-size: 18px;
-  
-}
-
-.question-display .comment-new input[type="submit"] {
-  width: 100px;
-  height: 54px;
-  margin-left: 10px;
-  margin-top: 7px;
-  position: absolute;
-}
-*/
-/*
-
-
-.questions-list .question{
-  background: #ddd;
-  margin-bottom: 10px;
-}
-
-.questions-list .question .question-name{
-  display: block;
-  background: #ccc;
-}
-
-.comments-list {
-  padding-right: 20px;
-}
-
-.comment {
-  margin-left: 20px;
-}
-
-*/
-
-
 
 .comments-list {
   background: white;
@@ -477,7 +340,6 @@ input[type="submit"]:hover{
   margin: auto;  
 }
 
-
 .question {
   border: 1px solid #707070;
   margin-bottom: 10px;
@@ -486,19 +348,23 @@ input[type="submit"]:hover{
 .question-content{
   background: #eee;
 }
+
 .question-name{
-  font-size: 24px;
+  display: block;
+  padding: 5px 10px;
+  font-size: 20px;
 }
 
 .question-description{
   background: #ddd;
   padding: 5px 5px 5px 10px;
+  font-size: 16px;
 }
 
 .question-footer {
   background: #eee;
   text-align: right;
-  font-size: 14px;
+  font-size: 12px;
   padding: 4px 0px;
 }
 
@@ -509,7 +375,6 @@ input[type="submit"]:hover{
 .question-footer .responses-botton {
   border-right: 1px solid black;
 }
-
 
 
 .question-show-page .question-content {
@@ -529,7 +394,11 @@ input[type="submit"]:hover{
   padding-top: 20px;
 }
 
-.question-content .question-description {
+.question-show-page .question-content .question-description {
   margin-top: 20px;
-  font-size: 16px;
 }
+
+.question-show-page .question > .comments-list{
+  padding-right: 20px;
+}
+
