@@ -1,11 +1,11 @@
 $(function(){
-    $(".question .comment-new").hide();
-    $(".comments-list .comment-new").hide();
+    $(".comment-new").hide();
     $(".comments-list").hide();
-    
+    // 
     //if url is that of a question show page
     if (window.location.pathname.indexOf("questions") != -1){
         $(".comments-list").show();
+        $(".question > .comment-new").show();
         $(".responses-botton").hide();
     }
     

@@ -1,0 +1,3 @@
+<%= render partial: "comments/comment_form", locals: {question: question, parent_id: 0} %>  
+
+<%= render partial: "comments/list_comments", locals: {question: question, comments: question.root_comments} %>

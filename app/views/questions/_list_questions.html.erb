@@ -1,17 +1,5 @@
 <div class="questions-list">
   <% questions.each do |question| %>
-    <div class="question">
-      <a class="question-name" href="<%= book_question_url(question.book, question) %>"><%= question.name %></a>
-      <p class="question-description"><%= question.description %></p>
-      <div class="question-footer">
-        <a class="responses-botton" href="#"><%= question.root_comments.count %> Responses</a>
-        <a class="comment-botton" href="#">respond</a>
-      </div>
-      
-      <%= render partial: "comments/comment_form", locals: {question: question, parent_id: 0} %>  
-      
-    
-      <%= render partial: "comments/list_comments", locals: {question: question, comments: question.root_comments} %>
-    </div>
+    <%= render partial: "questions/question", locals: { question: question, show_footer: true} %>
   <% end %>
 </div>

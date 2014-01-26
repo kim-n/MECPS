@@ -1,6 +1,29 @@
-<!-- Locals : question -->
+<% show_footer ||= false %>
 
 <div class="question">
-  <a class="question-name" href="<%= book_question_url(question.book, question) %>"><%= question.name %></a>
-  <p class="question-description"><%= question.description %></p>
+  <div class="question-content">
+    <% unless show_footer %>
+    <div class="book-sq">
+      <a href="<%= book_url(question.book) %>"><img src="<%= question.book.cover(:square) %>"></img></a>
+      <a class="book-sq-title fill-sq-title" href="<%= book_url(question.book) %>"><%= question.book.title %></a>
+    </div>
+    <% end %>
+    <div class="question-name"><a href="<%= book_question_url(question.book, question) %>"><%= question.name %></a></div>
+    <p class="question-description"><%= question.description %></p>
+  </div>
+
+<% if show_footer %>
+  <div class="question-footer">
+    <a class="responses-botton" href="#"><%= question.root_comments.count %> Responses</a>
+    <a class="comment-botton" href="#">respond</a>
+  </div>
+<% end %>
+
+<% unless show_footer %>
+  <div class="page-separator"></div>
+<% end %>
+
+<%= render partial: "questions/question_comments", locals: { question: question} %>
+
+
 </div>
