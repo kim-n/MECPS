@@ -5,7 +5,10 @@
   </header>
   <p class="comment-content"><%= comment.content %></p>
   <footer class="question-footer">
-    <a class="comment-botton" href="#">+RESPOND</a>
+    <% if comment.children.count > 0 %>
+    <a class="responses-botton" href="#"><%= comment.children.count %> response<%= "s" if comment.children.count > 1%> </a>
+    <% end %>
+    <a class="comment-botton" href="#">reply</a>
   </footer>  
   
   <%= render partial: "comments/comment_form", locals: {question: comment.question, parent_id: comment.id} %>  

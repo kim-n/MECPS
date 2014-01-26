@@ -1,12 +1,17 @@
 $(function(){
     $(".question .comment-new").hide();
     $(".comments-list .comment-new").hide();
-    $(".question .comments-list").hide();
+    $(".comments-list").hide();
+    
+    //if url is that of a question show page
+    if (window.location.pathname.indexOf("questions") != -1){
+        $(".comments-list").show();
+        $(".responses-botton").hide();
+    }
     
     $("body").on("click", ".responses-botton", function(event) {
         event.preventDefault();
         $thisQuestion = $(this).parent().parent();
-        $(".comments-list").hide()
         
         $thisQuestion.children(".comments-list").toggle();
     });

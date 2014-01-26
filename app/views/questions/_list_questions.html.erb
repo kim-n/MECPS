@@ -5,23 +5,11 @@
       <p class="question-description"><%= question.description %></p>
       <div class="question-footer">
         <a class="responses-botton" href="#"><%= question.root_comments.count %> Responses</a>
-        <a class="comment-botton" href="#">+RESPOND</a>
+        <a class="comment-botton" href="#">respond</a>
       </div>
       
-      <div class="comment-new">
-        <a class="comment-exit" href="#">x</a>
-        <form action="<%= question_comments_url(question) %>" method="POST">
-        <input  
-          type="hidden"
-          name="authenticity_token"
-          value="<%= form_authenticity_token %>"
-        ></input>
-
-        <textarea name="comment[content]"></textarea>
-
-        <input type="submit" value="New!"></input>
-        </form>
-      </div>
+      <%= render partial: "comments/comment_form", locals: {question: question, parent_id: 0} %>  
+      
     
       <%= render partial: "comments/list_comments", locals: {question: question, comments: question.root_comments} %>
     </div>
