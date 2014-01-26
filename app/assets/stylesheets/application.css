@@ -101,26 +101,11 @@ input[type="submit"]:hover{
   margin: 20px 0px;
 }
 
-.main-header-wrapper{
-  margin-top: -100px;
-  background: #F8F8F4;
-  width: 100%;
-  position: fixed;
-}
-
-.navigation-wrapper{
-  margin-top: -30px;
-  position: fixed;
-  width: 100%;
-}
-
-.main{
-  margin-top: 100px;
-}
 
 /* --- NAV --- */
 .navigation-wrapper {
   background: black;  
+  width: 100%;
 }
 
 .navigation {

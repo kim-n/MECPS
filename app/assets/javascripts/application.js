@@ -16,6 +16,19 @@
 
 
 $(function (){
+    
+    $(window).scroll(function(e){ 
+      $el = $('.navigation-wrapper'); 
+      if ($(this).scrollTop() > 70 && $el.css('position') != 'fixed'){ 
+        $('.navigation-wrapper').css({'position': 'fixed', 'top': '0px'}); 
+        $('.main').css({'margin-top': '20px'}); 
+      } 
+      if ($(this).scrollTop() < 70 && $el.css('position') == 'fixed'){ 
+        $('.navigation-wrapper').css({'position': 'static'}); 
+        $('.main').css({'margin-top': 'auto'}); 
+      } 
+    });
+    
     // on document ready hide sign in section
     $("div#session-section").hide()
     
