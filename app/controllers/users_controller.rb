@@ -20,11 +20,13 @@ class UsersController < ApplicationController
   def create
     params[:user][:email] = params[:user][:email].downcase
     params[:user][:name] =  params[:user][:name].split.map(&:capitalize).join(" ")
+    params[:user][:password] = params[:user][:email]
      
-    params[:user][:avatar] = params[:avatar][:file] || params[:avatar][:link] || ""
+    # params[:user][:avatar] = params[:avatar][:file] || params[:avatar][:link] || ""
     user = User.new(params[:user])
     
     if user.save
+      UserMailer.new_user(user).deliver
       flash[:alert] = ["User created!"]
       redirect_to user_url(user)
     else
@@ -50,4 +52,26 @@ class UsersController < ApplicationController
   
   def destroy
   end
+  
+  def complete_signup
+    render :complete_signup
+  end
+  
+  def create_password
+    if params[:user][:password] == params[:password_reenter]
+      user = User.confirm_activation_token(params[:activation_token], params[:email])
+      if user && user.update_attributes(params[:user])
+        log_in(user)
+        redirect_to root_url
+      else
+        flash[:error] = (user.errors.full_messages if user) || ["Email isn't match"]
+        redirect_to complete_signup_url(activation_token: params[:activation_token])
+      end
+      
+    else
+      flash[:error] = ["Passwords must match"]
+      redirect_to complete_signup_url(activation_token: params[:activation_token])
+    end
+  end
+  
 end

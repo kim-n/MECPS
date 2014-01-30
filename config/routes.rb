@@ -1,6 +1,9 @@
 Library::Application.routes.draw do
   
   root :to => "books#index"
+  
+  get 'complete_signup', :to => 'users#complete_signup'
+  post 'create_password', :to => 'users#create_password'
 
   resources :users, :except => [:destroy]
   

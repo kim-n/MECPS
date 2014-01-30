@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
     dependent: :destroy
   )
   
+  def self.confirm_activation_token(token, email)
+    user = User.find_by_session_token(token)
+    return user if user && user.email == email
+  end
   
   def self.find_by_credentials(email, password)
     user = User.find_by_email( email )

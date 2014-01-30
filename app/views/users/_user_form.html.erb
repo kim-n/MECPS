@@ -1,16 +1,16 @@
 <header class="title">Create User</header>
 
-<form action="<%= users_url %>" method="POST" enctype="multipart/form-data">
+<form action="<%= users_url %>" method="POST">
 <input  
   type="hidden"
   name="authenticity_token"
   value="<%= form_authenticity_token %>"
 ></input>
 
-<label>Avatar
+<!-- <label>Avatar
 <input type="file" name="avatar[file]" value=""></input>
 <input type="text" name="avatar[link]" value="" placeholder="o p t i o n a l"></input>
-</label>
+</label> -->
 
 <label>Email*
 <input type="text" name="user[email]" placeholder="r e q u i r e d"></input>
@@ -20,9 +20,9 @@
 <input type="text" name="user[name]" placeholder="r e q u i r e d"></input>
 </label>
 
-<label>Password*
+<!-- <label>Password*
 <input type="password" name="user[password]" placeholder="r e q u i r e d"></input>
-</label>
+</label> -->
 
 <input type="submit" value="New!"></input>
 </form>
