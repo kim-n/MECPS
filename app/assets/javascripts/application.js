@@ -29,8 +29,6 @@ $(function (){
       } 
     });
     
-    // on document ready hide sign in section
-    $("div#session-section").hide()
     
     // whem sign-in-botton is clicked session-section is toggled
     $("body").on("click", "#sign-in-botton", function (event){
