@@ -1,6 +1,3 @@
-<nav class="sub-navigation">
-  <a class="back-button" href="<%= book_url(@book) %>">BACK</a>
-</nav>
 
 <header class="page-title">New Question</header>
 
@@ -14,14 +11,16 @@
 ></input>
 
 <label>Question *
-<input type="text" name="question[name]"></input>
+<input type="text" name="question[name]" placeholder="required"></input>
 </label>
 
 <label>Description (optional)
-<textarea name="question[description]"></textarea>
+<textarea name="question[description]" placeholder="optional"></textarea>
 </label>
 
 <input type="submit" value="New!"></input>
 </form>
+
+<a class="back-button" href="<%= book_url(@book) %>">CANCEL</a>
 
 </div>
