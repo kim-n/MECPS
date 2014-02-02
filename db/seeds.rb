@@ -6,13 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin = User.create({email: 'admin@site.com', name: 'Admin', password: '123456', avatar: 'http://www.murketing.com/journal/wp-content/uploads/2009/04/8tracks.jpg' })
+admin = User.create({activation: true, email: 'admin@site.com', name: 'Admin', password: '123456', avatar: 'http://www.murketing.com/journal/wp-content/uploads/2009/04/8tracks.jpg' })
 admin.update_attribute("admin", 1)
 
-user = User.create({email: 'jenny@site.com', name: 'Jenny Renny', password: '123456', avatar: 'http://seeyprofile.com/design/main/images/default_avatar_female.jpg'})
-user = User.create({email: 'tim@site.com', name: 'Tim Jim', password: '123456', avatar: 'http://www.dotnetcodesg.com/Register/UserImage/Default.png'})
-user = User.create({email: 'dave@site.com', name: 'Dave Cave', password: '123456'})
-user = User.create({email: 'mark@site.com', name: 'Mark Park', password: '123456'})
+user = User.create({activation: true, email: 'jenny@site.com', name: 'Jenny Renny', password: '123456', avatar: 'http://seeyprofile.com/design/main/images/default_avatar_female.jpg'})
+user = User.create({activation: true, email: 'tim@site.com', name: 'Tim Jim', password: '123456', avatar: 'http://www.dotnetcodesg.com/Register/UserImage/Default.png'})
+user = User.create({activation: true, email: 'dave@site.com', name: 'Dave Cave', password: '123456'})
+user = User.create({activation: true, email: 'mark@site.com', name: 'Mark Park', password: '123456'})
 
 
 book1 = Book.create({

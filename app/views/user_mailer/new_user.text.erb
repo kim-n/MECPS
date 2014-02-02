@@ -2,4 +2,4 @@ Welcome <%= @user.name %> to MECPS Library Book Club!
 
 To complete sign up, click the below link to create a password.
 
-<%= edit_password_reset_url(activation_token: @user.activation_token) %>
+<%= new_activate_url(activation_token: @user.activation_token) %>
