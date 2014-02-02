@@ -60,13 +60,28 @@ form > div {
   display:inline;
 }
 
-input[type="password"], input[type="text"], input[type="file"], textarea {
+input[type="password"], input[type="text"], input[type="file"], input[type="checkbox"], textarea {
   background: #FDF9EC;
   font-size: 16px;
   border: 1px solid #eee;
   display:block;
-  width: 256px;
+  width: 400px;
   padding: 4px;
+  margin-bottom: 15px; 
+}
+
+input[type="file"] {
+  margin-bottom: 0px; 
+}
+
+textarea {
+  height: 100px;
+}
+
+input[type="submit"] {
+  width: 150px;
+  background: #eee;
+  padding: 10px 0px;
 }
 
 input[type="submit"]:hover{

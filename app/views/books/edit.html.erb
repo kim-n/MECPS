@@ -1,5 +1,7 @@
 <header class="page-title">Edit Book</header>
 
+<div class="page-middle">
+
 <form action="<%= book_url(@book) %>" method="POST">
   <input type="hidden" name="_method" value="PUT"></input>
 <input  
@@ -30,3 +32,7 @@
 
 <input type="submit" value="Edit!"></input>
 </form>
+
+<a class="back-button" href="<%= book_url(@book) %>">CANCEL</a>
+
+</div>

@@ -1,5 +1,7 @@
-<header class="title">Create User</header>
+<header class="title">Edit User</header>
 
+<div class="page-middle">
+  
 <form action="<%= user_url(@user) %>" method="POST" enctype="multipart/form-data">
   <input type="hidden" name="_method" action="PUT"></input>
 <input  
@@ -31,5 +33,9 @@
 <input type="password" name="user[password]" value=""></input>
 </label>
 
-<input type="submit" value="New!"></input>
+<input type="submit" value="Change!"></input>
 </form>
+
+<a class="back-button" href="<%= user_url(@user) %>">CANCEL</a>
+
+</div>
