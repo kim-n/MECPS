@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   
+  before_filter :require_no_current_user, :only => [:complete_signup, :create_password]  
   before_filter :require_current_user, :only => [:edit, :update]
   before_filter :require_admin, :only => [:new, :create]
   
@@ -22,13 +23,12 @@ class UsersController < ApplicationController
     params[:user][:name] =  params[:user][:name].split.map(&:capitalize).join(" ")
     params[:user][:password] = params[:user][:email]
      
-    # params[:user][:avatar] = params[:avatar][:file] || params[:avatar][:link] || ""
     user = User.new(params[:user])
     
     if user.save
       UserMailer.new_user(user).deliver
-      flash[:alert] = ["User created!"]
-      redirect_to user_url(user)
+      flash[:alert] = ["User activation sent out!"]
+      redirect_to admin_url
     else
       flash[:error] = user.errors.full_messages
       render :new
@@ -47,31 +47,9 @@ class UsersController < ApplicationController
   
   def update
     user = User.new(params[:user])
-    
   end
   
   def destroy
-  end
-  
-  def complete_signup
-    render :complete_signup
-  end
-  
-  def create_password
-    if params[:user][:password] == params[:password_reenter]
-      user = User.confirm_activation_token(params[:activation_token], params[:email])
-      if user && user.update_attributes(params[:user])
-        log_in(user)
-        redirect_to root_url
-      else
-        flash[:error] = (user.errors.full_messages if user) || ["Email isn't match"]
-        redirect_to complete_signup_url(activation_token: params[:activation_token])
-      end
-      
-    else
-      flash[:error] = ["Passwords must match"]
-      redirect_to complete_signup_url(activation_token: params[:activation_token])
-    end
   end
   
 end

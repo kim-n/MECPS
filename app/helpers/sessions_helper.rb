@@ -27,4 +27,5 @@ module SessionsHelper
   def require_no_current_user
     redirect_to user_url(current_user) if current_user
   end
+
 end

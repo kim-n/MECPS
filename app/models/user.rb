@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   # validate :file_dimensions, :unless => "errors.any?"
   
   after_initialize :ensure_session_token
+  after_initialize :ensure_activation_token
   
 
   # This method associates the attribute ":avatar" with a file attachment
@@ -41,11 +42,6 @@ class User < ActiveRecord::Base
     dependent: :destroy
   )
   
-  def self.confirm_activation_token(token, email)
-    user = User.find_by_session_token(token)
-    return user if user && user.email == email
-  end
-  
   def self.find_by_credentials(email, password)
     user = User.find_by_email( email )
     return user if user && user.is_password?(password)
@@ -65,8 +61,16 @@ class User < ActiveRecord::Base
   end
   
   private
+  def self.generate_session_token
+    SecureRandom::urlsafe_base64(16)
+  end
+  
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
+  end
+  
+  def ensure_activation_token
+    self.activation_token ||= self.class.generate_session_token
   end
   
   # def file_dimensions
@@ -78,9 +82,7 @@ class User < ActiveRecord::Base
   #   end
   # end
   
-  def self.generate_session_token
-    SecureRandom::urlsafe_base64(16)
-  end
+
   
   def password
     @password

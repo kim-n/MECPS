@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140125212549) do
+ActiveRecord::Schema.define(:version => 20140202083923) do
 
   create_table "books", :force => true do |t|
     t.string   "title",              :null => false
@@ -47,17 +47,19 @@ ActiveRecord::Schema.define(:version => 20140125212549) do
   add_index "questions", ["name", "book_id"], :name => "index_questions_on_name_and_book_id", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "email",                              :null => false
-    t.string   "name",                               :null => false
-    t.string   "password_digest",                    :null => false
-    t.string   "session_token",                      :null => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.string   "email",                                  :null => false
+    t.string   "name",                                   :null => false
+    t.string   "password_digest",                        :null => false
+    t.string   "session_token",                          :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.integer  "admin",               :default => 0
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "activation_token",                       :null => false
+    t.boolean  "activated",           :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
