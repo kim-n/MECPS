@@ -2,6 +2,8 @@ Library::Application.routes.draw do
   
   root :to => "books#index"
   
+  resource :password_reset, :only => [:new, :create, :edit, :update]
+  
   resources :users, :except => [:destroy]
   
   resource :session, :only => [:new, :create, :destroy]

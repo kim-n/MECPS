@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
     self.update_attribute(:session_token, self.class.generate_session_token)
   end
   
+  def reset_activation_token!
+    self.update_attribute(:activation_token, self.class.generate_session_token)
+  end
+  
   private
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)

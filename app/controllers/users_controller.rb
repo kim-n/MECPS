@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   
-  before_filter :require_no_current_user, :only => [:complete_signup, :create_password]  
   before_filter :require_current_user, :only => [:edit, :update]
   before_filter :require_admin, :only => [:new, :create]
   
