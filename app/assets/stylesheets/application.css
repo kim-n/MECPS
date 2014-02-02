@@ -13,7 +13,7 @@
  */
 
 
-/* --- RESET --- */
+/* ----- RESET ----- */
 
 html, body, header, footer, section, article, div, span,
 strong, a, img, p, h1, h2, h3, time, ul, li, small, input, select, form {
@@ -25,18 +25,15 @@ strong, a, img, p, h1, h2, h3, time, ul, li, small, input, select, form {
   vertical-align: baseline;
 }
 
-/* --- ELEMENTS --- */
+/* ----- ELEMENTS ----- */
 
 body {
   font-family: sans-serif;
   background: transparent;
-  font-size: 20px;
+  font-size: 16px;
   line-height: normal;
   background: #F8F8F4;
-/*  background-image:url('lghtmesh.png');*/
 }
-
-
 
 ul {
   list-style: none;
@@ -63,13 +60,14 @@ form > div {
   display:inline;
 }
 
-input[type="password"], input[type="text"], textarea {
+input[type="password"], input[type="text"], input[type="file"], textarea {
   background: #FDF9EC;
-/*  margin: 2px;*/
+  font-size: 16px;
   border: 1px solid #eee;
   display:block;
+  width: 256px;
+  padding: 4px;
 }
-
 
 input[type="submit"]:hover{
   background: red;
@@ -77,7 +75,8 @@ input[type="submit"]:hover{
   cursor: pointer;
 }
 
-/* --- UTILITIES --- */
+
+/* ----- UTILITIES ----- */
 
 .group:after {
   content: "";
@@ -89,10 +88,16 @@ input[type="submit"]:hover{
   display: block;
   font-size: 24px;
   font-weight: 100;
+  letter-spacing: 5px;
   color: #d7d7d7;
   padding: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #d7d7d7;
+  margin-bottom: 20px;
+  border-bottom: 10px solid #d7d7d7;
+}
+
+.page-middle {
+  background: #ccc;
+  padding: 20px;
 }
 
 .page-separator {
@@ -102,7 +107,25 @@ input[type="submit"]:hover{
 }
 
 
-/* --- NAV --- */
+/* ----- FLASH ----- */
+
+.error,
+.alert {
+  width: 900px;
+  margin: auto;
+  text-align: center;
+  background: red;
+  color: white;
+}
+
+.alert {
+  background: yellow;
+  color: black;
+}
+
+
+/* ----- NAV ----- */
+
 .navigation-wrapper {
   background: black;  
   width: 100%;
@@ -110,7 +133,7 @@ input[type="submit"]:hover{
 
 .navigation {
   background: #070707;
-  width: 900px;
+  width: 902px;
   height: 35px;
   margin: auto;
   color: white;
@@ -118,7 +141,7 @@ input[type="submit"]:hover{
 
 .navigation  a {
   color:white;
-  padding: 7px 10px;
+  padding: 9px 15px;
   margin-left: -7px;
   border-right: 1px solid #ccc;
 }
@@ -134,18 +157,18 @@ input[type="submit"]:hover{
 .left-navigation{
   margin-left: 7px;
   float: left;
-  margin-top: 6px;
+  margin-top: 9px;
 }
 
 .right-navigation{
   float: right;
-  margin-top: 6px;
+  margin-top: 9px;
 }
 
 .right-navigation input[type="submit"] {
-  padding: 7px;
-  margin-left: -5px;
-  margin-top: -6px;
+  padding: 8px 8px;
+  margin-left: -4px;
+  margin-top: -8px;
   background: black;
   color: white;
   border-right: 1px solid #ccc;
@@ -183,13 +206,45 @@ input[type="submit"]:hover{
   display: none;
 }
 
-#session-section input[type="text"],
-#session-section input[type="password"] {
-  margin-bottom: 10px;  
-  width: 260px;
+#session-section .page-middle {
+ background: transparent;
+ padding: 0; 
 }
 
-/* --- MAIN --- */
+#session-section input[type="text"],
+#session-section input[type="password"] {
+  padding: 10px 7px;
+  width: 246px;
+}
+
+#session-section input[type="password"]{
+  margin-bottom: 10px;
+}
+
+
+#session-section input[type="submit"],
+#session-section a {
+  background: #ddd;
+  font-size: 14px;
+}
+
+#session-section input[type="submit"] {
+  color: red;
+  padding: 5px 0px;
+  width: 121px;
+  margin-right: 10px;
+}
+
+
+#session-section a {
+  background: transparent;
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 5px 3px;
+}
+
+/* ----- MAIN ----- */
+
 .main-header-wrapper{
   font-size: 50px;
   height: 50px;
@@ -209,6 +264,21 @@ input[type="submit"]:hover{
   margin-right: auto;
 }
 
+.main-footer {
+  width: 900px;
+  margin: auto;
+  background: black;
+  font-size: 12px;
+  height: 18px;
+  padding-top: 4px;
+}
+
+.main-footer a {
+  padding: 0px 20px;
+  color: grey;
+}
+
+/* ----- SQUARES ----- */
 
 .user-sq,
 .book-sq {
@@ -217,6 +287,7 @@ input[type="submit"]:hover{
   text-align: center;
   white-space: nowrap;
   margin: 5px;
+  border: 1px solid #bbb;
 }
 
 .user-sq-avatar{
@@ -229,6 +300,9 @@ input[type="submit"]:hover{
 .book-sq-title{ 
   color: white;  
 }
+
+
+/* ----- BOOK ----- */
 
 .book {
   background: #ccc;
@@ -267,6 +341,9 @@ input[type="submit"]:hover{
   font-size: 16px;
 }
 
+
+/* ----- USER ----- */
+
 .user {
   background: #ccc;
   width: 100%;
@@ -295,6 +372,9 @@ input[type="submit"]:hover{
 .user-join {
   font-size: 12px;
 }
+
+
+/* ----- COMMENT ----- */
 
 .comments-list {
   background: white;
@@ -340,7 +420,6 @@ input[type="submit"]:hover{
   width: 87%;
   margin: auto;
   margin-top: 10px;
-
 }
 
 .comment-new input[type="submit"] {
@@ -348,6 +427,9 @@ input[type="submit"]:hover{
   display:block;
   margin: auto;  
 }
+
+
+/* ----- QUESTION ----- */
 
 .question {
   border: 1px solid #707070;

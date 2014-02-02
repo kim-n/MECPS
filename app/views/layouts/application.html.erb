@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Library</title>
+  <title>MECPS Library</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -12,22 +12,19 @@
     <header class="main-header">Library</header>
   </div>
   
-<% if flash[:error] %>
-  <% flash[:error].each do |notice| %>
-    <p class="error"><%= notice %></p>
-  <% end %>
-<% end %>
-<% if flash[:alert] %>
-  <% flash[:alert].each do |alert| %>
-    <p class="alert"><%= alert %></p>
-  <% end %>
-<% end %>
 
 <%= render "layouts/nav_bar" %>
+
+<%= render "layouts/flash_messages" %>
+
 <div class="main">
 	<%= yield %>
+  
+  <div class="page-separator"></div>
 </div>
 
-<footer><a href="#">Contact Us</a><a href="#">Links</a></footer>
+<footer class="main-footer">
+  <a href="#">Contact Us</a>
+  <a href="#">Links</a></footer>
 </body>
 </html>

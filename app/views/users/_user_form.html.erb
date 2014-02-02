@@ -1,5 +1,8 @@
 <header class="title">Create User</header>
 
+
+<div class="page-middle">
+  
 <form action="<%= users_url %>" method="POST">
 <input  
   type="hidden"
@@ -13,11 +16,11 @@
 </label> -->
 
 <label>Email*
-<input type="text" name="user[email]" placeholder="r e q u i r e d"></input>
+<input type="text" name="user[email]" placeholder="required"></input>
 </label>
 
 <label>Name*
-<input type="text" name="user[name]" placeholder="r e q u i r e d"></input>
+<input type="text" name="user[name]" placeholder="required"></input>
 </label>
 
 <!-- <label>Password*
@@ -26,3 +29,5 @@
 
 <input type="submit" value="New!"></input>
 </form>
+
+</div>

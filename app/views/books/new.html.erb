@@ -1,5 +1,7 @@
 <header class="page-title">Create Book</header>
 
+<div class="page-middle">
+
 <form action="<%= books_url %>" method="POST" enctype="multipart/form-data">
 <input  
   type="hidden"
@@ -9,25 +11,27 @@
 
 
 <label>Title*
-<input type="text" name="book[title]" placeholder="r e q u i r e d"></input>
+<input type="text" name="book[title]" placeholder="required"></input>
 </label>
 
 <label>Author*
-<input type="text" name="book[author]" placeholder="r e q u i r e d"></input>
+<input type="text" name="book[author]" placeholder="required"></input>
 </label>
 
 <label>Avatar
 <input type="file" name="cover[file]" value=""></input>
-<input type="text" name="cover[link]" value="" placeholder="o p t i o n a l"></input>
 </label>
+<input type="text" name="cover[link]" value="" placeholder="optional"></input>
 
 <label>Description
-<input type="text" name="book[description]" placeholder="o p t i o n a l"></input>
+<textarea name="book[description]" placeholder="optional"></textarea>
 </label>
 
 <label>Source
-<input type="text" name="source" placeholder="o p t i o n a l"></input>
+<input type="text" name="source" placeholder="optional"></input>
 </label>
 
 <input type="submit" value="New!"></input>
 </form>
+
+</div>
