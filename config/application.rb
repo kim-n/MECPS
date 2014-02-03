@@ -81,6 +81,6 @@ module Library
     
     config.assets.initialize_on_precompile = false
     
-    config.action_mailer.default_url_options = { host: 'library.herokuapp.com' }
+    config.action_mailer.default_url_options = { host: 'mecps.herokuapp.com' }
   end
 end
