@@ -2,7 +2,7 @@
 
 <div class="page-middle">
 
-<form action="<%= book_url(@book) %>" method="POST">
+<form action="<%= book_url(@book) %>" method="POST" enctype="multipart/form-data">
   <input type="hidden" name="_method" value="PUT"></input>
 <input  
   type="hidden"
@@ -18,17 +18,34 @@
 <input type="text" name="book[author]" value="<%= @book.author %>"></input>
 </label>
 
+
+<% if @book.cover.exists? %>
+<label>Delete cover?
+  <input type="checkbox" name="book[delete_cover]" value="1"></input>
+</label>
+<% else %>
+<label>Cover
+<input type="file" name="cover[file]" value=""></input>
+</label>
+<input type="text" name="cover[link]" value="" placeholder="optional"></input>
+<% end %>
+
+
 <label>Description
 <textarea name="book[description]"><%= @book.description %></textarea>
 </label>
 
-<label>Image
-<input type="text" name="book[cover]" value="<%= @book.cover() %>"></input>
+<% if @book.source.exists? %>
+<label>Delete source?
+  <input type="checkbox" name="book[delete_source]" value="1"></input>
 </label>
-
+<% else %>
 <label>Source
-<input type="text" name="book[source]" value="<%= @book.source %>"></input>
+<input type="file" name="source[file]" value=""></input>
 </label>
+<input type="text" name="source[link]" value="" placeholder="optional"></input>
+<% end %>
+
 
 <input type="submit" value="Edit!"></input>
 </form>

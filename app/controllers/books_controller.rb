@@ -18,25 +18,12 @@ class BooksController < ApplicationController
   
   def create
 
-    params[:book][:cover] = params[:cover][:file] || params[:cover][:link] || ""  
-    
-    match = /.+\/(.+)/.match(params[:source])
-    file_name = match[1] unless match.nil?
-    
-    if file_name && File.exists?("public/#{file_name}")  # match[1] is filename
-      flash[:error] = ["#{file_name} already exists"]
-    elsif file_name
-      params[:book][:source] = request.protocol + request.host_with_port + "/#{file_name}"
-    end
-    
+    params[:book][:cover] = params[:cover][:file] || params[:cover][:link].strip || ""  
+
+    params[:book][:source] = params[:source][:file] || params[:source][:link].strip || ""  
     book = Book.new(params[:book])
     
-    if flash[:error].nil? && book.save
-      if file_name
-        open("public/#{file_name}", 'wb') do |file|
-          file << open(params[:source]).read
-        end
-      end
+    if book.save
       flash[:alert] = ["#{book.title} added!"]
       redirect_to book_url(book)
     else
@@ -51,10 +38,19 @@ class BooksController < ApplicationController
   end
   
   def update
-    @book = Book.find_by_id(params[:id])
-    @book.update_attributes(params[:book])
+    params[:book][:cover] = params[:cover][:file] || params[:cover][:link].strip || ""  if params[:cover]
+
+    params[:book][:source] = params[:source][:file] || params[:source][:link].strip || ""  if params[:source]
     
-    redirect_to book_url(@book)
+    @book = Book.find_by_id(params[:id])
+    if @book.update_attributes(params[:book])
+      flash[:alert] = ["Changes saved"]
+      redirect_to book_url(@book)
+    else
+      flash[:error] = @book.errors.full_messages
+      redirect_to edit_book_url(@book)
+    end
+    
   end
   
   def destroy

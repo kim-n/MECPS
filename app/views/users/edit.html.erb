@@ -2,35 +2,35 @@
 
 <div class="page-middle">
   
-<form action="<%= user_url(@user) %>" method="POST" enctype="multipart/form-data">
-  <input type="hidden" name="_method" action="PUT"></input>
+<form action="<%= user_url %>" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="_method" value="PUT"></input>
 <input  
   type="hidden"
   name="authenticity_token"
   value="<%= form_authenticity_token %>"
 ></input>
 
-
-<% if @user.avatar %>
+<% if @user.avatar.exists? %>
 <label>Delete avatar?
-  <input type="checkbox" name="delete_avatar" value="1"></input>
+  <input type="checkbox" name="user[delete_avatar]" value="1"></input>
 </label>
 <% else %>
 <label>Avatar
-<input type="file" name="user[avatar]" value="<%= @user.avatar %>"></input>
+<input type="file" name="avatar[file]" value=""></input>
 </label>
+<input type="text" name="avatar[link]" value="" placeholder="optional"></input>
 <% end %>
 
 <label>Email*
-<input type="text" name="user[email]" value="<%= @user.email %>"></input>
+<input type="text" name="user[email]"></input>
 </label>
 
 <label>Name*
-<input type="text" name="user[name]" value="<%= @user.name %>"></input>
+<input type="text" name="user[name]"></input>
 </label>
 
 <label>Password*
-<input type="password" name="user[password]" value=""></input>
+<input type="password" name="user[password]"></input>
 </label>
 
 <input type="submit" value="Change!"></input>

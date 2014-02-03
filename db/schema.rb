@@ -11,19 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140202223003) do
+ActiveRecord::Schema.define(:version => 20140203031816) do
 
   create_table "books", :force => true do |t|
-    t.string   "title",              :null => false
-    t.string   "author",             :null => false
+    t.string   "title",               :null => false
+    t.string   "author",              :null => false
     t.text     "description"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "source"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "source_file_name"
+    t.string   "source_content_type"
+    t.integer  "source_file_size"
+    t.datetime "source_updated_at"
   end
 
   create_table "comments", :force => true do |t|

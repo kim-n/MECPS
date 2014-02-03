@@ -1,27 +1,29 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password
+  attr_accessible :email, :name, :password, :avatar, :delete_avatar
   
-  # You will need to use attr_accessible if you are
-  # using Rails config setting `whitelist_attributes = true`
-  attr_accessible :avatar
+  attr_accessor :delete_avatar
+  attr_accessor :not_updating_password
+  
+  before_validation { avatar.clear if delete_avatar == '1' }
   
   validates :email, :name, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
-  validates :password, length: { in: 6..20, message: "password must be between 6 and 20 characters" }
-  validates_format_of :email, { with: /\A.+@.+\..+\z/, message: "email must be a valid email"}
-# validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/, :message => 'file type is not allowed (only jpeg/png/gif images)'  
-  # validate :file_dimensions, :unless => "errors.any?"
+  validates :password, length: { in: 6..20, message: " must be between 6 and 20 characters" }, :unless => :dont_validate_password?
+  validates_format_of :email, { with: /\A.+@.+\..+\z/, message: " must be a valid email"}
   
-  after_initialize :ensure_session_token
-  after_initialize :ensure_activation_token
-  
-
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :avatar, styles: {
     thumb: '100x100>',
     square: '200x200#',
     full: '200X200>'
   }
+  
+  validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/, :message => 'file type is not allowed (only jpeg/png/gif images)'  
+  # validate :file_dimensions, :unless => "errors.any?"
+  
+  after_initialize :ensure_session_token
+  after_initialize :ensure_activation_token
+  
   
   has_many(
     :questions,
@@ -92,4 +94,7 @@ class User < ActiveRecord::Base
     @password
   end
   
+  def dont_validate_password?
+    not_updating_password || new_record?
+  end
 end
