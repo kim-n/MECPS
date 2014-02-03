@@ -22,7 +22,7 @@ class ActivatesController < ApplicationController
     
     user = User.find_by_activation_token(params[:activation_token])
     
-    if user.email == params[:email]
+    if user.email == params[:email].downcase
       if params[:user][:password] == params[:password_reenter]
         if user.update_attributes(params[:user])
           user.update_column(:activated, true)

@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "no-reply@mecps.herokuapp.com"
   
   def new_user(user)
     @user = user
