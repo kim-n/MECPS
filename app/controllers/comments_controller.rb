@@ -4,13 +4,15 @@ class CommentsController < ApplicationController
   
   def create
     params[:comment][:question_id] = params[:question_id]
+    params[:comment][:content].gsub!(/\r\n?/, "\n")
     @comment = current_user.comments.new(params[:comment])
+    
     
     if @comment.save
       flash[:alert] = ["Comment Saved!"]
       redirect_to question_url(params[:question_id])
     else
-      flash[:error] = ["ERROR: Comment not saved!"]
+      flash[:error] = ["Comment not saved!"]
       flash[:error] += @comment.errors.full_messages
       redirect_to question_url(params[:question_id])
     end

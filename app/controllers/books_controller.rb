@@ -17,10 +17,11 @@ class BooksController < ApplicationController
   end
   
   def create
-
     params[:book][:cover] = params[:cover][:file] || params[:cover][:link].strip || ""  
-
     params[:book][:source] = params[:source][:file] || params[:source][:link].strip || ""  
+    
+    params[:book][:author] =  params[:book][:author].split.map(&:capitalize).join(" ")
+    
     book = Book.new(params[:book])
     
     if book.save

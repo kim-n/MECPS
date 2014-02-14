@@ -1,0 +1,12 @@
+<% if current_user && is_admin?(current_user) %>
+<nav class="sub-navigation">
+  <a href="<%= edit_link_url %>">EDIT</a>
+
+</nav>
+<% end %>
+
+<div class="links">
+
+<%= simple_format(@link.page_html.gsub(/\r\n/, '<br/>') ) %>
+
+</div>

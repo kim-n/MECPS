@@ -12,7 +12,7 @@
   <div class="book-cover"><%= image_tag @book.cover.url(:full) %></div>
     <div class="book-title fill-book-title"><%= @book.title %></div>
     <div class="book-author">by <%= @book.author %></div>
-    <% if current_user && @book.source %>
+    <% if current_user && @book.source.exists? %>
     <a class="book-download" href="<%= @book.source %>">Download</a>
     <% end %>
     <div class="book-description"><%= @book.description %></div>

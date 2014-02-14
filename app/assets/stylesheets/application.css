@@ -166,7 +166,8 @@ input[type="submit"]:hover{
 }
 
 .navigation  a:hover {
-  background: green;
+  background: gold;
+  color: black;
 }
 
 .left-navigation{
@@ -190,7 +191,8 @@ input[type="submit"]:hover{
 }
 
 .right-navigation input[type="submit"]:hover {
-  background: green;
+  background: gold;
+  color: black;
 }
 
 .sub-navigation {
@@ -510,3 +512,36 @@ input[type="submit"]:hover{
   padding-right: 20px;
 }
 
+
+
+/* ----- LINKS ----- */
+
+.links {
+  background: #ccc;
+  padding: 20px 40px;
+}
+
+
+.links h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: -20px;
+}
+
+
+.links a:before {
+  content: "\2022";
+  padding-right: 5px;
+}
+
+.edit-links textarea{
+  width: 98%;
+  height: 450px; 
+  font-size: 14px;
+}
+
+
+/* ----- ABOUT ----- */
+.about {
+  background: #ccc;
+}

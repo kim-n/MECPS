@@ -3,7 +3,7 @@
     <a class="comment-user" href="<%= user_url(comment.user) %>"><%= comment.user.name %></a>
     <p class="comment-date"><%= comment.created_at.strftime("%b %e %y") %></p>
   </header>
-  <p class="comment-content"><%= comment.content %></p>
+  <p class="comment-content"><%= simple_format(comment.content) %></p>
   <footer class="question-footer">
     <% if comment.children.count > 0 %>
       <a class="responses-botton" href="#"><%= comment.children.count %> response<%= "s" if comment.children.count > 1%> </a>

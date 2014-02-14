@@ -10,7 +10,6 @@
     <span class="right-navigation">
       <% if current_user %>
         <a href="<%= user_url(current_user) %>"><%= current_user.name %></a>
-        <a href="#">N</a>
         <%= button_to "SIGN OUT", session_url, method: :delete %>
       <% else %>
         <a id="sign-in-botton" href="<%= new_session_url %>">SIGN IN</a>

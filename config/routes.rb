@@ -2,6 +2,13 @@ Library::Application.routes.draw do
   
   root :to => "books#index"
   
+  get 'about', :to => 'misc_pages#about'
+  # get 'links', :to => 'misc_pages#links'
+
+  get 'links', :to => 'links#show'
+
+  resource :link, :only => [:edit, :update] 
+  
   resource :password_reset, :only => [:new, :create, :edit, :update]
   
   resources :users, :except => [:destroy]
