@@ -21,9 +21,11 @@
 <input type="text" name="avatar[link]" value="" placeholder="optional"></input>
 <% end %>
 
+<% if is_admin?(current_user) %>
 <label>Email*
 <input type="text" name="user[email]"></input>
 </label>
+<% end %>
 
 <label>Name*
 <input type="text" name="user[name]"></input>
