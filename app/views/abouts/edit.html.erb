@@ -1,0 +1,23 @@
+<header class="page-title">Edit About Us</header>
+
+<div class="page-middle edit-links">
+
+<form action="<%= about_url %>" method="POST">
+  <input type="hidden" name="_method" value="PUT"></input>
+
+<input  
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>"
+></input>
+  
+<label>Page Html
+<textarea name="page_html"><%= @link.page_html %></textarea>
+</label>
+
+<input type="submit" value="SAVE!"></input>
+</form>
+
+<a class="back-button" href="<%= links_url %>">CANCEL</a>
+
+</div>
